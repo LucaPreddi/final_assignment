@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <launch>
-	
+	 
+    <!-- ################ Launching the simulation node. ################ -->
+
 	  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -88,5 +90,27 @@
       <param name="lasamplestep" value="0.005"/>
       <param name="transform_publish_period" value="0.0005"/>
     </node>
+
+  <!-- ################ Launching the user interface's nodes. ################ -->
+
+  <param name="active" type="int" value="0" />
+  <param name="des_pos_x" type="double" value="1" />
+  <param name="des_pos_y" type="double" value="1" />
+
+  <node pkg="final_assignment" type="UI.py" name="UI" required="true" launch-prefix="xterm -e" />
+  <node pkg="final_assignment" type="modality1.py" name="modality1" required="true" launch-prefix="xterm -e" />
+  <node pkg="final_assignment" type="modality2.py" name="modality2" required="true" launch-prefix="xterm -e" /> 
+  <node pkg="final_assignment" type="modality3.py" name="modality3" required="true" launch-prefix="xterm -e" /> 
+
+  <!-- ################ Launching the move_base node. ################ -->
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  	<rosparam file="$(find final_assignment)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+  	<rosparam file="$(find final_assignment)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+  	<rosparam file="$(find final_assignment)/param/local_costmap_params.yaml" command="load"/>
+  	<rosparam file="$(find final_assignment)/param/global_costmap_params.yaml" command="load"/>
+  	<rosparam file="$(find final_assignment)/param/base_local_planner_params.yaml" command="load"/>
+  	<rosparam file="$(find final_assignment)/param/move_base_params.yaml" command="load"/>
+  </node>
 
 </launch>
