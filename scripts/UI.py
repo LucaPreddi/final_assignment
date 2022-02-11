@@ -37,16 +37,16 @@ menu_msg = bcolors.ENDC + """
 
 # Defining function interpreter(), this function will start the different
 # modalities depending on what the user decides to choose. The variable
-# flag is used to wait in the first modality the end of the task.
+# boolprint is used to wait in the first modality the end of the task.
 
-flag = False
+boolprint = False
 def interpreter():
-	global flag 
+	global boolprint 
 	print(menu_msg)
 
-	if flag == True:
+	if boolprint == True:
 		print(bcolors.WARNING + bcolors.BOLD + "Press [0] for canceling the target." + bcolors.ENDC)
-		flag = False
+		boolprint = False
 	command = input(bcolors.HEADER + 'Instert a command \n' + bcolors.ENDC)
 
 	# Setting all the modalities idle.
@@ -74,7 +74,7 @@ def interpreter():
 		rospy.set_param('des_pos_x', des_x_input)
 		rospy.set_param('des_pos_y', des_y_input)
 		rospy.set_param('active', 1)
-		flag=True
+		boolprint=True
 
 	# Starting the second modality.
 

@@ -40,13 +40,13 @@ msg = """
 """ + bcolors.BOLD +"""
 Reading from the keyboard and Publishing to Twist!
 ---------------------------
-""" + bcolors.ENDC + bcolors.OKBLUE + bcolors.BOLD + """
+""" + bcolors.ENDC + bcolors.BOLD + """
 [i] go straight    
 [j] turn left
 [l] turn right
 [k] go backwards
 
-""" + bcolors.HEADER + bcolors.BOLD +"""
+""" + bcolors.BOLD +"""
 [q]/[z] : increase/decrease max speeds by 10%
 [w]/[x] : increase/decrease only linear speed by 10%
 [e]/[c] : increase/decrease only angular speed by 10%
@@ -314,6 +314,9 @@ if __name__=="__main__":
                 boolprint = 1
 
             # Getting the key and popping the command in the dictionary.
+            # The moveBindings_copy dictionary is the one we pass to the robot
+            # but every loop gets the value of the original dictionary in orde
+            # to be always updated.
 
             key = getKey(key_timeout)
             pop_dict(moveBindings_copy)
