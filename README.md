@@ -42,9 +42,8 @@ Introduction
 
 __The aim of the project is to create a simulation of a robot with Gazebo and Rviz, in order to make the robot exploring the map. The simulation is like this:__
 
-The circuit is the following:
 <p align="center">
-<img src="https://github.com/LucaPreddi/RT1Assignment2/blob/main/Images/MonzaCircuit.png" width="500" height="450">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Schermata%202022-02-12%20alle%2019.57.13.png" width="564" height="254">
 </p>
 
 The professor asked us to build the package by using __three different modalities__, which means three different behaviours of the robot. 
@@ -77,4 +76,161 @@ __DISCLAIMER__: here I will explain the nodes that I developed by myself, so ple
 
 ### UI node (final_assignment package)
 
-The u
+The UI node is a super easy node because it is used only to set the ROS parameter s travelling through the nodes. The most important one is the integer ```active``` which is the one dedicated to the modality of the robot. The other two are the desired positions which are useful only for the first modality. 
+
+Essentially this is the pseudocoude behind my idea:
+
+```
+def interpreter():
+	command = input
+	if command == "0":
+    Reset the robot to idle state and cancel the goal.
+    
+	elif command == "1":
+    Start the first modality.
+
+	elif command == "2":
+    Start the second modality.
+    
+	elif command == "3":
+    Start the third modality.
+    
+	elif command == "4":
+    Quit the program.
+    
+	else:
+    Print: "Wrong key!"
+```
+
+Here's a screenshot of the xterm console:
+
+<p align="center">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
+</p>
+
+### Modality 1 node (final_assignment package)
+
+In the modality 1 the robot has to reach by itself a goal sent by the user in the UI node.
+
+The UI node is the most interesting one because is based on ROSAction, all the magic takes place with the line:
+
+```python
+client = actionlib.SimpleActionClient('/move_base', MoveBaseAction)
+```
+
+Thanks to this [wiki.ros page](http://wiki.ros.org/actionlib_tutorials/Tutorials/Writing%20a%20Simple%20Action%20Client%20%28Python%29) I could develop a good action with its functions ```done_cb()```, ```active_cb```, ```feedback_cb```. 
+
+Then, we have the function ```ActionClient()```, __the function starts the communication with wait_for_server(). The action client and server communicate over a set of topics, described in the actionlib protocol.  The action name describes the namespace naining these topics, and the action specification message describes what messages should be passed along these topics. __
+
+The ```main()``` function takes the aim of the modality. First of all it loops, then we update the variables (containing the status of the modality and the position informations) and the code understands the behaviour of the robot _status_ thanks to the action.
+
+The program has a control which permits to put the robot in idle state in the case the robot itself cannot reach a position (for example out of the maze). 
+
+Here's a screenshot of the xterm console:
+
+<p align="center">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
+</p>
+
+### Modality 2 node (final_assignment package)
+
+__The second modality is the one dedicate to the movement of the robot using the keyboard, I decided to simply use the following control table:__
+
+| Direction   |      key      |
+|----------|:-------------:|
+| Straight |  'i' |
+| Right |    'l'   |
+| Left | 'j' |
+| Back | 'k' |
+
+The logic of the code is really simple, because I decided to use the already existing code of the package ___teleop_twist_keyboard___ the code, is open to be realaborated on their github repo, here's the [link](http://wiki.ros.org/teleop_twist_keyboard), as you can see it's pretty easy and what I've done is really simple.
+
+Anyway I realaborated the code by using the paramater ```active``` because we want this modality only when the user asks for it, everything else is the same as in the package teleop_twist_keyboard.
+
+Here's a screenshot of the xterm console:
+
+<p align="center">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
+</p>
+
+### Modality 3 node (final_assignment package)
+
+__The modality 3 has the same aim of the modality 2, but it asks for an assisting stop when the robot is too close to a wall.__
+
+To develop this modality I decided to reuse the second modality but modifing the most important part, the assignment of the key to the movement of the robot. To make the robot move the code uses the dictionary which is a code structure of python. Here we have:
+
+```python
+moveBindings = {
+        'i':(1,0,0,0),
+        'j':(0,0,0,1),
+        'l':(0,0,0,-1),
+        'k':(-1,0,0,0),
+    }
+```
+
+Then we decide to get the inputs from the keyboard but everything is controlled by a new function, called ```python pop_dict()``` which permits to get rid of the commands that we shouldn't have when we're close to a wall. The function is the following: 
+
+```python
+def pop_dict(dictionary):
+
+    global ok_left
+    global ok_right
+    global ok_straight
+
+    if not ok_straight and not ok_right and not ok_left:
+        popped1 = dictionary.pop('i')
+        popped2 = dictionary.pop('j')
+        popped3 = dictionary.pop('l')
+        print(bcolors.FAIL  + "Command 'i' disabled." + bcolors.ENDC, end="\r")
+        print(bcolors.FAIL + "Command 'j' disabled." + bcolors.ENDC , end="\r")
+        print(bcolors.FAIL + "Command 'l' disabled." + bcolors.ENDC , end="\r")
+    elif not ok_left and not ok_straight and ok_right:
+        popped1 = dictionary.pop('i')
+        popped2 = dictionary.pop('j')
+        print(bcolors.FAIL + "Command 'i' disabled." + bcolors.ENDC , end="\r")
+        print(bcolors.FAIL + "Command 'j' disabled." + bcolors.ENDC , end="\r")
+    elif ok_left and not ok_straight and not ok_right:
+        popped1 = dictionary.pop('i')
+        popped2 = dictionary.pop('l')
+        print(bcolors.FAIL + "Command 'i' disabled." + bcolors.ENDC , end="\r")
+        print(bcolors.FAIL + "Command 'l' disabled." + bcolors.ENDC , end="\r")
+    elif not ok_left and ok_straight and not ok_right:
+        popped1 = dictionary.pop('l')
+        popped2 = dictionary.pop('j')
+        print(bcolors.FAIL + "Command 'l' disabled." + bcolors.ENDC , end="\r")
+        print(bcolors.FAIL + "Command 'j' disabled." + bcolors.ENDC , end="\r")
+    elif ok_left and not ok_straight and ok_right:
+        popped1 = dictionary.pop('i')
+        print(bcolors.FAIL + "Command 'i' disabled." + bcolors.ENDC , end="\r")
+    elif not ok_left and ok_straight and ok_right:
+        popped1 = dictionary.pop('j')
+        print(bcolors.FAIL + "Command 'j' disabled." + bcolors.ENDC , end="\r")
+    elif ok_left and ok_straight and not ok_right:
+        popped1 = dictionary.pop('l')
+        print(bcolors.FAIL + "Command 'l' disabled." + bcolors.ENDC , end="\r")
+```
+
+As you can see, we're passing a dictionary to the function. The idea is that we will pass a copy of the original ```moveBindings``` dictionary, because we don't want the original informations to be lost when we're away from a wall! This is only the real difference from the other modality.
+
+Here's a screenshot of the xterm console:
+
+<p align="center">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
+</p>
+
+## Conclusion and possible improvements
+
+I'm really satisfied of the work, it was pretty tough especially by finding all the informations to create a good communication and developing each node. Thank's to the portability of ROS and the community I finalized the job. To conclude the communication of the nodes I will show yo with the node
+```bash
+rosrun rqt_graph rqt_graph
+```
+
+the relationship between all the nodes:
+
+<p align="center">
+<img src="https://github.com/LucaPreddi/RT1Assignment2/blob/main/Images/Schermata%202021-12-12%20alle%2013.12.58.png">
+</p>
+
+__The possible improvements that can be done are:
+- We can manage better the User Interface, it is not so easy and it's full of various bugs.
+- The modalities do only their jobs, but they can be completed with a lot of other fun things, like managing the speed and othe characteristics of the robot.
