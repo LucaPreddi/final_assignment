@@ -105,7 +105,7 @@ def interpreter():
 Here's a screenshot of the xterm console:
 
 <p align="center">
-<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Schermata%202022-02-13%20alle%2000.38.05.png" width="485" height="356">
 </p>
 
 ### Modality 1 node (final_assignment package)
@@ -129,7 +129,7 @@ The program has a control which permits to put the robot in idle state in the ca
 Here's a screenshot of the xterm console:
 
 <p align="center">
-<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Schermata%202022-02-13%20alle%2000.39.40.png" width="485" height="356">
 </p>
 
 ### Modality 2 node (final_assignment package)
@@ -150,7 +150,7 @@ Anyway I realaborated the code by using the paramater ```active``` because we wa
 Here's a screenshot of the xterm console:
 
 <p align="center">
-<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Schermata%202022-02-13%20alle%2000.40.06.png" width="485" height="356">
 </p>
 
 ### Modality 3 node (final_assignment package)
@@ -215,7 +215,7 @@ As you can see, we're passing a dictionary to the function. The idea is that we 
 Here's a screenshot of the xterm console:
 
 <p align="center">
-<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Schermata%202022-02-13%20alle%2000.40.24.png" width="485" height="356">
 </p>
 
 ## Conclusion and possible improvements
@@ -228,9 +228,10 @@ rosrun rqt_graph rqt_graph
 the relationship between all the nodes:
 
 <p align="center">
-<img src="https://github.com/LucaPreddi/RT1Assignment2/blob/main/Images/Schermata%202021-12-12%20alle%2013.12.58.png">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Schermata%202022-02-13%20alle%2000.41.38.png">
 </p>
 
-__The possible improvements that can be done are:
+__The possible improvements that can be done are:__
 - We can manage better the User Interface, it is not so easy and it's full of various bugs.
 - The modalities do only their jobs, but they can be completed with a lot of other fun things, like managing the speed and othe characteristics of the robot.
+- As you can see, the input on the modality 3 is not really taken perfectly, it takes in the standard input the input keys and prints them. I tried to fix this problem but I couldn't fix it. Anyway I know for sure that if I will take some time over I can finally fix it.
