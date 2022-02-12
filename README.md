@@ -6,6 +6,13 @@ Installing and running
 
 The simulator requires ROS (Robot Operating System), which is a set of software libraries and tools that help you build robot applications. The simulator perfectly runs on the [Noetic Release of ROS](http://wiki.ros.org/noetic/Installation), I haven't tried the [ROS 2 release](https://docs.ros.org) yet, so let me know if it does actually work. 
 
+
+The simulator requires __slam_gmapping__ package, so please install it before using the package here presented! [_Link to install slam_gmapping package._](http://wiki.ros.org/slam_gmapping)
+
+
+The simulator requires __Gazebo and Rviz__, so please check that you have installed those two programs!
+
+
 Anyway you can check every release of ROS in this [link](http://wiki.ros.org/ROS/Installation).
 
 Another tool to be installed is the xterm interface. We use it to make the user experience more appreciatable, so run this command:
@@ -54,7 +61,7 @@ Logic behind the code
 To satisfy the requests I decided to code 4 different nodes inside the package, the simulation is managed by the simulation which was provided by the professor, essentially __you have to install the slam_gmapping package.__ Here's the idea behind the communication of the nodes:
 
 <p align="center">
-<img src="https://github.com/LucaPreddi/RT1Assignment2/blob/main/Images/Blank%20diagram.jpeg" width="520" height="360">
+<img src="https://github.com/LucaPredieri/RT1Assignment3/blob/main/Blank%20diagram.png" width="470" height="425">
 </p>
 
 As you can see it's an easy idea, but the implementation is not that easy! Anyway I will go through everything.
@@ -62,3 +69,12 @@ As you can see it's an easy idea, but the implementation is not that easy! Anywa
 _Briefly description_
 
 The user through the console of the UI node will decide the modality to run, after that the robot will start it's modality and will show on the consoles of the modalities the result of the task, wheter it was okay or if something is going wrong. Anyway, the most important part is to understand the usage of the modalities.
+
+## Nodes and their logic
+
+_Here I will explain each node code and tasks, to have a deeper description of the code, check the comments inside of it._
+__DISCLAIMER__: here I will explain the nodes that I developed by myself, so please for more infos about the other nodes check the ROS wiki.
+
+### UI node (final_assignment package)
+
+The u
