@@ -119,6 +119,9 @@ client = actionlib.SimpleActionClient('/move_base', MoveBaseAction)
 ```
 
 Thanks to this [wiki.ros page](http://wiki.ros.org/actionlib_tutorials/Tutorials/Writing%20a%20Simple%20Action%20Client%20%28Python%29) I could develop a good action with its functions ```done_cb()```, ```active_cb```, ```feedback_cb```. 
+If you want to get deep into ROSaction check out this video:
+
+[![Everything Is AWESOME](https://github.com/LucaPredieri/RT1Assignment3/blob/main/Schermata%202022-02-13%20alle%2015.47.41.png)](https://www.youtube.com/watch?v=aS9zubUpSI8)
 
 Then, we have the function ```ActionClient()```, __the function starts the communication with wait_for_server(). The action client and server communicate over a set of topics, described in the actionlib protocol.  The action name describes the namespace naining these topics, and the action specification message describes what messages should be passed along these topics. __
 
