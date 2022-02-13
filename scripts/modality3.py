@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# Importing the libraries.
+
 from __future__ import print_function
 import threading
 from sensor_msgs.msg import LaserScan
@@ -12,18 +14,12 @@ import sys, select, termios, tty
 
 # Implementing class with the colors.
 
-class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
+class colorz:
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    RED = '\033[91m'
+    END = '\033[0m'
     BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-    ORANGE = '\033[33m' 
-    PURPLE  = '\033[35m'
 
 #################### READ ME PLEASE! ####################
 # This code is just the already existing teleop_twist_- #
@@ -37,20 +33,20 @@ class bcolors:
 #########################################################
 
 msg = """
-""" + bcolors.BOLD +"""
-Reading from the keyboard and Publishing to Twist!
+""" + colorz.BOLD +"""
+This node makes the robot move with some keys, here's the list, enjoy!
+Be careful! when you're close to walls it is gonna stop.
 ---------------------------
-""" + bcolors.ENDC + bcolors.BOLD + """
-[i] go straight    
-[j] turn left
-[l] turn right
-[k] go backwards
+""" + colorz.END + colorz.BOLD + """
+Moving around:
+        i     
+   j    k    l
 
-""" + bcolors.BOLD +"""
-[q]/[z] : increase/decrease max speeds by 10%
-[w]/[x] : increase/decrease only linear speed by 10%
-[e]/[c] : increase/decrease only angular speed by 10%
-""" + bcolors.ENDC + """
+""" + colorz.END + colorz.BOLD +"""
+q/z : increase/decrease max speeds by 10%
+w/x : increase/decrease only linear speed by 10%
+e/c : increase/decrease only angular speed by 10%
+""" + colorz.END + """
 
 """
 
@@ -222,7 +218,7 @@ def CallbackLaser(msg):
 # Disabling the commands by popping from the dictionary in order to
 # not let the robot moving towards the walls.
 
-def pop_dict(dictionary):
+def pop_it(dictionary):
 
     global ok_left
     global ok_right
@@ -232,41 +228,38 @@ def pop_dict(dictionary):
         popped1 = dictionary.pop('i')
         popped2 = dictionary.pop('j')
         popped3 = dictionary.pop('l')
-        print(bcolors.FAIL  + "Command 'i' disabled." + bcolors.ENDC, end="\r")
-        print(bcolors.FAIL + "Command 'j' disabled." + bcolors.ENDC , end="\r")
-        print(bcolors.FAIL + "Command 'l' disabled." + bcolors.ENDC , end="\r")
+        print(colorz.RED  + "Command 'i' disabled." + colorz.END, end="\r")
+        print(colorz.RED + "Command 'j' disabled." + colorz.END , end="\r")
+        print(colorz.RED + "Command 'l' disabled." + colorz.END , end="\r")
     elif not ok_left and not ok_straight and ok_right:
         popped1 = dictionary.pop('i')
         popped2 = dictionary.pop('j')
-        print(bcolors.FAIL + "Command 'i' disabled." + bcolors.ENDC , end="\r")
-        print(bcolors.FAIL + "Command 'j' disabled." + bcolors.ENDC , end="\r")
+        print(colorz.RED + "Command 'i' disabled." + colorz.END , end="\r")
+        print(colorz.RED + "Command 'j' disabled." + colorz.END , end="\r")
     elif ok_left and not ok_straight and not ok_right:
         popped1 = dictionary.pop('i')
         popped2 = dictionary.pop('l')
-        print(bcolors.FAIL + "Command 'i' disabled." + bcolors.ENDC , end="\r")
-        print(bcolors.FAIL + "Command 'l' disabled." + bcolors.ENDC , end="\r")
+        print(colorz.RED + "Command 'i' disabled." + colorz.END , end="\r")
+        print(colorz.RED + "Command 'l' disabled." + colorz.END , end="\r")
     elif not ok_left and ok_straight and not ok_right:
         popped1 = dictionary.pop('l')
         popped2 = dictionary.pop('j')
-        print(bcolors.FAIL + "Command 'l' disabled." + bcolors.ENDC , end="\r")
-        print(bcolors.FAIL + "Command 'j' disabled." + bcolors.ENDC , end="\r")
+        print(colorz.RED + "Command 'l' disabled." + colorz.END , end="\r")
+        print(colorz.RED + "Command 'j' disabled." + colorz.END , end="\r")
     elif ok_left and not ok_straight and ok_right:
         popped1 = dictionary.pop('i')
-        print(bcolors.FAIL + "Command 'i' disabled." + bcolors.ENDC , end="\r")
+        print(colorz.RED + "Command 'i' disabled." + colorz.END , end="\r")
     elif not ok_left and ok_straight and ok_right:
         popped1 = dictionary.pop('j')
-        print(bcolors.FAIL + "Command 'j' disabled." + bcolors.ENDC , end="\r")
+        print(colorz.RED + "Command 'j' disabled." + colorz.END , end="\r")
     elif ok_left and ok_straight and not ok_right:
         popped1 = dictionary.pop('l')
-        print(bcolors.FAIL + "Command 'l' disabled." + bcolors.ENDC , end="\r")
-
-def vels(speed, turn):
-    return "currently:\tspeed %s\tturn %s " % (speed,turn)
+        print(colorz.RED + "Command 'l' disabled." + colorz.END , end="\r")
 
 if __name__=="__main__":
 
     boolprint = 1
-    rospy.init_node('teleop_avoid')
+    rospy.init_node('Modality3')
     active_=rospy.get_param("/active")
     settings = termios.tcgetattr(sys.stdin)
     speed = rospy.get_param("~speed", 0.5)
@@ -294,7 +287,6 @@ if __name__=="__main__":
 
     moveBindings_copy = {}
     print(msg)
-    print(vels(speed,turn))
 
     while(1):
 
@@ -310,7 +302,7 @@ if __name__=="__main__":
             # Advising the user that the modality 3 is on.
 
             if boolprint == 0:
-                print(bcolors.BOLD + bcolors.OKGREEN + "You can start using this modality!\n" + bcolors.ENDC)
+                print(colorz.BOLD + colorz.GREEN + "You can start using this modality!\n" + colorz.END)
                 boolprint = 1
 
             # Getting the key and popping the command in the dictionary.
@@ -319,7 +311,7 @@ if __name__=="__main__":
             # to be always updated.
 
             key = getKey(key_timeout)
-            pop_dict(moveBindings_copy)
+            pop_it(moveBindings_copy)
 
             if key in moveBindings_copy.keys():
 
@@ -332,7 +324,6 @@ if __name__=="__main__":
 
                 speed = speed * speedBindings[key][0]
                 turn = turn * speedBindings[key][1]
-                print(vels(speed,turn))
                 if (status == 14):
                     print(msg)
                 status = (status + 1) % 15
@@ -358,7 +349,7 @@ if __name__=="__main__":
         else:
             if boolprint == 1:
                 pub_thread.my_stop() 
-                print(bcolors.OKBLUE + bcolors.BOLD + "\nModality 3 is currently in idle state.\n" + bcolors.ENDC)
+                print(colorz.BLUE + colorz.BOLD + "\nModality 3 is currently in idle state.\n" + colorz.END)
             boolprint = 0
 
         rate.sleep()

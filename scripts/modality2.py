@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# Importing the libraries.
+
 from __future__ import print_function
 import threading
 import roslib; roslib.load_manifest('teleop_twist_keyboard')
@@ -9,10 +11,10 @@ import sys, select, termios, tty
 
 # Implementing class with the colors.
 
-class bcolors:
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    ENDC = '\033[0m'
+class colorz:
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    END = '\033[0m'
     BOLD = '\033[1m'
 
 #################### READ ME PLEASE! ####################
@@ -27,33 +29,22 @@ class bcolors:
 #########################################################
 
 msg = """ 
-""" + bcolors.BOLD +"""
-Reading from the keyboard and Publishing to Twist!
-
+""" + colorz.BOLD +"""
+This node makes the robot move with some keys, here's the list, enjoy!
 ---------------------------
 
-""" + bcolors.ENDC + bcolors.BOLD + """
+""" + colorz.END + colorz.BOLD + """
 Moving around:
-   u    i    o
+        i     
    j    k    l
-   m    ,    .
 
-""" + bcolors.ENDC + bcolors.BOLD + """
-For Holonomic mode (strafing), hold down the shift key:
----------------------------
-   U    I    O
-   J    K    L
-   M    <    >
-
-t : up (+z)
-b : down (-z)
-""" + bcolors.ENDC + bcolors.BOLD + """
+""" + colorz.END + colorz.BOLD + """
 anything else : stop
-""" + bcolors.ENDC + bcolors.BOLD +"""
+""" + colorz.END + colorz.BOLD +"""
 q/z : increase/decrease max speeds by 10%
 w/x : increase/decrease only linear speed by 10%
 e/c : increase/decrease only angular speed by 10%
-"""+ bcolors.ENDC +""" 
+"""+ colorz.END +""" 
 
 """
 
@@ -210,8 +201,6 @@ def getKey(key_timeout):
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     return key
 
-def vels(speed, turn):
-    return "currently:\tspeed %s\tturn %s \n" % (speed,turn)
 
 if __name__=="__main__":
 
@@ -219,7 +208,7 @@ if __name__=="__main__":
 
     boolprint = 1
 
-    rospy.init_node('my_teleop_twist_kb')
+    rospy.init_node('modality2')
     settings = termios.tcgetattr(sys.stdin)
     speed = rospy.get_param("~speed", 0.5)
     turn = rospy.get_param("~turn", 1.0)
@@ -243,7 +232,6 @@ if __name__=="__main__":
     # Printing some informations and user interfaces commands.
 
     print(msg)
-    print(vels(speed,turn))
 
     # Looping the process part.
 
@@ -253,7 +241,7 @@ if __name__=="__main__":
 
         if boolprint == 1:
             pub_thread.robot_stop() 
-            print(bcolors.BOLD + bcolors.OKBLUE + "Modality 2 is currently in idle state.\n" + bcolors.ENDC)
+            print(colorz.BOLD + colorz.BLUE + "Modality 2 is currently in idle state.\n" + colorz.END)
             boolprint = 0
 
         # If the modality 2 is active, we want to procede with the task.
@@ -263,7 +251,7 @@ if __name__=="__main__":
             # Printing informations.
 
             if boolprint == 0:
-                print(bcolors.BOLD + bcolors.OKGREEN + "You can start using this modality!\n" + bcolors.ENDC)
+                print(colorz.BOLD + colorz.GREEN + "You can start using this modality!\n" + colorz.END)
                 boolprint = 1
 
             # Getting input and assigning the key to the output.
@@ -278,7 +266,6 @@ if __name__=="__main__":
                 speed = speed * speedBindings[key][0]
                 turn = turn * speedBindings[key][1]
 
-                print(vels(speed,turn))
                 if (status == 14):
                     print(msg)
                 status = (status + 1) % 15

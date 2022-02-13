@@ -11,27 +11,21 @@ from std_srvs.srv import *
 # Implementing the class colorz, the class which assign the name 
 # to the colors.
 
-class bcolors:
-	HEADER = '\033[95m'
-	OKBLUE = '\033[94m'
-	OKCYAN = '\033[96m'
-	OKGREEN = '\033[92m'
-	WARNING = '\033[93m'
-	FAIL = '\033[91m'
-	ENDC = '\033[0m'
+class colorz:
+	BLUE = '\033[94m'
+	GREEN = '\033[92m'
+	RED = '\033[91m'
+	END = '\033[0m'
 	BOLD = '\033[1m'
-	UNDERLINE = '\033[4m'
-	ORANGE = '\033[33m' 
-	PURPLE  = '\033[35m'
 
 # Implementing class with the colors.
 # Creating message to display later.
 
 msg = """ 
-""" + bcolors.BOLD + """
+""" + colorz.BOLD + """
 This node makes the robot autonomously reach a x,y position inserted by the user on the UI interface.
 It uses actionlib, which permits to us to make the code simplier and better.
-""" +bcolors.ENDC + """
+""" +colorz.END + """
 """
 
 # Assigning to local variables the data travelling around ROS' nodes.
@@ -66,23 +60,23 @@ def done_cb(status, result):
 	global achieved
 
 	if status == 2:
-		print(bcolors.FAIL + "Goal received a cancel request." + bcolors.ENDC)
+		print(colorz.RED + "Goal received a cancel request." + colorz.END)
 		return
 	if status == 3:
-		print(bcolors.OKGREEN + bcolors.BOLD + "Goal achieved!" + bcolors.ENDC)
+		print(colorz.GREEN + colorz.BOLD + "Goal achieved!" + colorz.END)
 		achieved = True
 		return
 	if status == 4:
-		print(bcolors.FAIL + bcolrs.BOLD + "Timeout expired. Goal aborted."  + bcolors.ENDC)
+		print(colorz.RED + bcolrs.BOLD + "Timeout expired. Goal aborted."  + colorz.END)
 		return
 	if status == 5:
-		print(bcolors.FAIL + bcolrs.BOLD + "The goal was not accepted." + bcolors.ENDC)
+		print(colorz.RED + bcolrs.BOLD + "The goal was not accepted." + colorz.END)
 		return
 	if status == 6:
-		print(bcolors.FAIL + bcolrs.BOLD + "The goal received a cancel request when he didn't finished the task."+ bcolors.ENDC)
+		print(colorz.RED + bcolrs.BOLD + "The goal received a cancel request when he didn't finished the task."+ colorz.END)
 		return
 	if status == 8:
-		print(bcolors.FAIL + bcolrs.BOLD + "The goal received a cancel request before it started executing. "+ bcolors.ENDC)
+		print(colorz.RED + bcolrs.BOLD + "The goal received a cancel request before it started executing. "+ colorz.END)
 		return
 
 # No-parameter callback that gets called on transitions to Active.
@@ -124,7 +118,7 @@ def main():
 	global goal_msg
 	global achieved
 
-	rospy.init_node('go_to_desired_pos') # Init node
+	rospy.init_node('modality1') # Init node
 
 	# Running the ActionClient() function to start the communication with the action.
 
@@ -141,35 +135,37 @@ def main():
 
 		UpdatingVariables()
 
-		# If active_ is turned to 1 we procede with the task of the process.
-
-		if active_==1:
-			
-			# If the prevoius state was Idle then we can set a new goal
-
-			if boolprint == 1:
-				print(bcolors.OKGREEN + bcolors.BOLD + "The robot is moving towards your desired target. " + bcolors.ENDC)
-				SetGoal(desired_position_x, desired_position_y)	# Here we decide to set a new goal.
-				boolprint = 0	# If this modality will be blocked, then we have to be put in idle.
-
 		# If we are in Idle state but a goal was not achieved we need to cancel the goal.
 		# If active_ is turned to 0 we can idle the process and wait until the
 		# first modality is asked by the user. In any case, we want to cancel 
 		# the goal asked by the user.
 
-		else:
-
+		if active_ == 0:
+			
 			# If the robot is idle forced by the user we do this:
 
 			if boolprint == 0 and achieved == False:
-				print(bcolors.OKBLUE + "Modality 1 is currently in idle state. \n" + bcolors.ENDC)
+				print(colorz.BLUE + "Modality 1 is currently in idle state. \n" + colorz.END)
 				client.cancel_goal()
 				boolprint = 1
 
 			# If the robot has achieved the goal.
+
 			if achieved == True:
 				boolprint = 1
 				achieved = False
+
+		# If active_ is turned to 1 we procede with the task of the process.
+
+		elif active_ == 1:
+
+			# If the prevoius state was Idle then we can set a new goal
+			if boolprint == 1:
+				print(colorz.GREEN + colorz.BOLD + "The robot is moving towards your desired target. " + colorz.END)
+				SetGoal(desired_position_x, desired_position_y)	# Here we decide to set a new goal.
+				boolprint = 0	# If this modality will be blocked, then we have to be put in idle.
+
+			
 
 
 if __name__ == '__main__':
