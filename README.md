@@ -81,7 +81,7 @@ The UI node is a super easy node because it is used only to set the ROS paramete
 Essentially this is the pseudocoude behind my idea:
 
 ```
-def interpreter():
+def switch():
 	command = input
 	if command == "0":
     Reset the robot to idle state and cancel the goal.
@@ -174,7 +174,7 @@ moveBindings = {
 Then we decide to get the inputs from the keyboard but everything is controlled by a new function, called ```python pop_dict()``` which permits to get rid of the commands that we shouldn't have when we're close to a wall. The function is the following: 
 
 ```python
-def pop_dict(dictionary):
+def pop_it(dictionary):
 
     global ok_left
     global ok_right
