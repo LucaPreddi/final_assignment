@@ -238,3 +238,5 @@ __The possible improvements that can be done are:__
 - We can manage better the User Interface, it is not so easy and it's full of various bugs.
 - The modalities do only their jobs, but they can be completed with a lot of other fun things, like managing the speed and othe characteristics of the robot.
 - As you can see, the input on the modality 3 is not really taken perfectly, it takes in the standard input the input keys and prints them. I tried to fix this problem but I couldn't fix it. Anyway I know for sure that if I will take some time over I can finally fix it.
+
+(To implement the best code I could, I worked with my class mates, so I have to extend the credit to: Fabio Conti, Francesco Pagano, Alessandro Perri, Matteo Carlone)
