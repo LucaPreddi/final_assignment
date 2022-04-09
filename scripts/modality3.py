@@ -1,5 +1,19 @@
 #!/usr/bin/env python3
 
+"""
+.. module:: Modality3
+ :platform: Unix
+ :synopsis: Module for the second modality.
+
+.. moduleauthor:: Luca Predieri <luca.predieri2018@gmail.com>
+ 
+This code is just the already existing teleop_twist_keyboard package on ROS. Some of the code has been modified in  order to incorporate
+the script with the final_assignment package. Some code won't be commented as gar as you can check the ROS wiki package of it by googling it.
+Anyway, here's the link for getting deeper in the code: http://wiki.ros.org/teleop_twist_keyboard
+The dictionary ``moveBindings`` will have some features popped out because when the robot is close to the walls. This permits to the user to avoid colliding with the walls.
+
+"""
+
 # Importing the libraries.
 
 from __future__ import print_function
@@ -177,6 +191,14 @@ class PublishThread(threading.Thread):
 # Defining getKey, with which we'll get the input from the keyboard.
 
 def getKey(key_timeout):
+    """
+    Function to get the input from the keyboard without having the need to wait for the user to press enter.
+    
+    Args:
+     key_timeout
+    Returns:
+     the k
+    """
     tty.setraw(sys.stdin.fileno())
     rlist, _, _ = select.select([sys.stdin], [], [], key_timeout)
     if rlist:
@@ -191,7 +213,12 @@ def getKey(key_timeout):
 # same as in the first assignment.
 
 def CallbackLaser(msg):
-
+    """
+    Function to check if some wall is close to the robot.
+    
+    Args:
+     message from the odometry of the robot
+    """
     global ok_left
     global ok_right
     global ok_straight
@@ -219,7 +246,13 @@ def CallbackLaser(msg):
 # not let the robot moving towards the walls.
 
 def pop_it(dictionary):
-
+    """
+    Function to pop the key from the dictionary. As you can see it's pretty intuitive, because depending by the position of the wall we
+    pop some precise keys.
+    
+    Args:
+     dictionary
+    """
     global ok_left
     global ok_right
     global ok_straight
@@ -255,6 +288,16 @@ def pop_it(dictionary):
     elif ok_left and ok_straight and not ok_right:
         popped1 = dictionary.pop('l')
         print(colorz.RED + "Command 'l' disabled." + colorz.END , end="\r")
+
+def main():
+    """
+    The main here is really important because as the different input arrives it changes the key moving the robots.
+    As the other two modalities, we have again ``active`` which permits the user to use the modality as he wants.
+    As you could see, the modality 1 and the modality 2 are pretty equal, but here's the difference, when the robot is close to a wall,
+    we pop the keys in the dictionary permitting the robot to move towards the robot. 
+
+    """
+
 
 if __name__=="__main__":
 

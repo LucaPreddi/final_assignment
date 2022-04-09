@@ -1,6 +1,25 @@
 #! /usr/bin/env python3
 
+"""
+.. module:: Modality1
+ :platform: Unix
+ :synopsis: Module for the first modality.
+
+.. moduleauthor:: Luca Predieri <luca.predieri2018@gmail.com>
+
+Subscribes to:
+ none
+Publishes to:
+ none
+ 
+This node is needed to the first modality of the program. The node makes the robot autonomously reach a x,y position inserted by the user on the UI interface. It uses actionlib, which permits to us to make the code simplier and better. It is really important to say that we have three parameters that we get from the UI:
+ - ``active`` which is the variable determinating the status of the modality, if it's on or not.
+ - ``desired_position_x`` which communicates the desired x position.
+ - ``desired_position_y`` which communicates the desired y position.
+"""
+
 # Importing the libraries.
+
 
 import rospy
 import actionlib
@@ -31,12 +50,12 @@ It uses actionlib, which permits to us to make the code simplier and better.
 # Assigning to local variables the data travelling around ROS' nodes.
 # This part is crucial.
 
-goal_msg = MoveBaseGoal()												# Action message
-active_ = rospy.get_param('active')										# ROS poarameter to block/unlock the modality 
-desired_position_x = rospy.get_param('des_pos_x')						# X desired coordinate 
-desired_position_y = rospy.get_param('des_pos_y')						# Y desired coordinate 
-client = actionlib.SimpleActionClient('/move_base', MoveBaseAction)		# Action client.
-achieved = False														# Variable for defining if a goal was achieved or not.
+goal_msg = MoveBaseGoal()				# Action client.
+achieved = False						# Variable for defining if a goal was achieved or not.
+active_ = 0								# ROS poarameter to block/unlock the modality 
+desired_position_x = 0					# X desired coordinate 
+desired_position_y = 0					# Y desired coordinate 
+
 
 # Defining ActionClient(), the function starts the communication with wait_for_server()
 # The action client and server communicate over a set of topics, described in the actionlib protocol. 
@@ -44,6 +63,13 @@ achieved = False														# Variable for defining if a goal was achieved or 
 # message describes what messages should be passed along these topics. 
 
 def ActionClient():
+
+	"""
+	Function to define the ActionClient and create the action.
+	
+	Args:
+		none.
+	"""
 	global goal_msg
 	global client
 	client.wait_for_server()
@@ -56,6 +82,18 @@ def ActionClient():
 # the n variable 
 
 def done_cb(status, result):
+	"""
+	Function to define the functionalities of the action, like advising the user of the goal received and other useful messages. We want the action to do the following dues:
+	 - Advising the user Advising the user that the goal was cancelled.
+	 - Advising the user that the goal was achieved.
+	 - Advising the user that the goal was aborted because the timer expired.
+	 - Advising the user that the goal was not accepted.
+	
+	Args:
+	 none
+	Returns:
+	 none
+	"""
 	global client
 	global achieved
 
@@ -73,7 +111,7 @@ def done_cb(status, result):
 		print(colorz.RED + bcolrs.BOLD + "The goal was not accepted." + colorz.END)
 		return
 	if status == 6:
-		print(colorz.RED + bcolrs.BOLD + "The goal received a cancel request when he didn't finished the task."+ colorz.END)
+		print(colorz.RED + bcolrs.BOLD + "The goal received a cancel request when he didn't finish the task."+ colorz.END)
 		return
 	if status == 8:
 		print(colorz.RED + bcolrs.BOLD + "The goal received a cancel request before it started executing. "+ colorz.END)
@@ -105,6 +143,17 @@ def SetGoal(x, y):
 # active_, desired_position_x, desired_position_y.
 
 def UpdatingVariables():
+
+	"""
+	Function to update the variables:
+	 - active
+	 - desired_position_x
+	 - desired_position_y
+	
+	Args:
+		none.
+	"""
+
 	global desired_position_x, desired_position_y, active_
 	active_ = rospy.get_param('active')
 	desired_position_x = rospy.get_param('des_pos_x')
@@ -113,10 +162,19 @@ def UpdatingVariables():
 # Defining main() function.
 
 def main():
+	"""
+	Function to start all the features. The function if active is toggled or not it will do different tasks, it will wait when it is 
+	0 and it will check the situation of the robot and the task, obviously it is all helped by the action.
+	
+	Args:
+		none.
+	"""
 
 	global client
 	global goal_msg
 	global achieved
+
+	client = actionlib.SimpleActionClient('/move_base', MoveBaseAction)		# Action client.
 
 	rospy.init_node('modality1') # Init node
 

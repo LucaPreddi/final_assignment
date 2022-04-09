@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classmodality2_1_1_publish_thread" kind="class" language="Python" prot="public">
+    <compoundname>modality2::PublishThread</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Thread</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1a6763358debe1a6991e731be783236718" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::publisher</definition>
+        <argsstring></argsstring>
+        <name>publisher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="108" column="1" bodyfile="scripts/modality2.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1aa5059b9ec024db4f646b72a0be8d176c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="109" column="1" bodyfile="scripts/modality2.py" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1a9147865097c00605dbe974f919c28d7a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="110" column="1" bodyfile="scripts/modality2.py" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1add95394a028cf43bb933d4d796fb1d03" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="111" column="1" bodyfile="scripts/modality2.py" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1a38191a6e7e82e7a30e4a5e4ef1883399" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::th</definition>
+        <argsstring></argsstring>
+        <name>th</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="112" column="1" bodyfile="scripts/modality2.py" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1aba3a0e9100c57996c65d96ee3c8c0793" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="113" column="1" bodyfile="scripts/modality2.py" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1a54a61a55d0c7af830675a595d8dde5c7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::turn</definition>
+        <argsstring></argsstring>
+        <name>turn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="114" column="1" bodyfile="scripts/modality2.py" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1a41313a63921a4b466e944df4ff0eeba5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::condition</definition>
+        <argsstring></argsstring>
+        <name>condition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="115" column="1" bodyfile="scripts/modality2.py" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1a3c1bc5920dcde9b0823a845033e20a15" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::done</definition>
+        <argsstring></argsstring>
+        <name>done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="116" column="1" bodyfile="scripts/modality2.py" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1_publish_thread_1a581eb635d15b693aaf403d50d2068aff" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.PublishThread::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="122" column="1" bodyfile="scripts/modality2.py" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmodality2_1_1_publish_thread_1a16837fd79a5ce02184433f26b6c318eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality2.PublishThread.__init__</definition>
+        <argsstring>(self, rate)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>rate</type>
+          <defname>rate</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="105" column="1" bodyfile="scripts/modality2.py" bodystart="105" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality2_1_1_publish_thread_1a2c8d4f942598d35132fb1b0151cd24a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality2.PublishThread.wait_for_subscribers</definition>
+        <argsstring>(self)</argsstring>
+        <name>wait_for_subscribers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="128" column="1" bodyfile="scripts/modality2.py" bodystart="128" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality2_1_1_publish_thread_1ab0548a548f5342c6fb96d896b56a6560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality2.PublishThread.update</definition>
+        <argsstring>(self, x, y, z, th, speed, turn)</argsstring>
+        <name>update</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>y</type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>z</type>
+          <defname>z</defname>
+        </param>
+        <param>
+          <type>th</type>
+          <defname>th</defname>
+        </param>
+        <param>
+          <type>speed</type>
+          <defname>speed</defname>
+        </param>
+        <param>
+          <type>turn</type>
+          <defname>turn</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="139" column="1" bodyfile="scripts/modality2.py" bodystart="139" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality2_1_1_publish_thread_1a4b551fa94b5303d75301d592733393b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality2.PublishThread.stop</definition>
+        <argsstring>(self)</argsstring>
+        <name>stop</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="153" column="1" bodyfile="scripts/modality2.py" bodystart="153" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality2_1_1_publish_thread_1a48ea85d617a85cc4aed5e69664d77c23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality2.PublishThread.robot_stop</definition>
+        <argsstring>(self)</argsstring>
+        <name>robot_stop</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function to stop the robot.
+
+Args:
+ self
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="161" column="1" bodyfile="scripts/modality2.py" bodystart="161" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality2_1_1_publish_thread_1a7a3af5bcfdd0b453c271000129a8e915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality2.PublishThread.run</definition>
+        <argsstring>(self)</argsstring>
+        <name>run</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="177" column="1" bodyfile="scripts/modality2.py" bodystart="177" bodyend="212"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>modality2.PublishThread</label>
+        <link refid="classmodality2_1_1_publish_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Thread</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>modality2.PublishThread</label>
+        <link refid="classmodality2_1_1_publish_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Thread</label>
+      </node>
+    </collaborationgraph>
+    <location file="scripts/modality2.py" line="104" column="1" bodyfile="scripts/modality2.py" bodystart="104" bodyend="213"/>
+    <listofallmembers>
+      <member refid="classmodality2_1_1_publish_thread_1a16837fd79a5ce02184433f26b6c318eb" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>__init__</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a41313a63921a4b466e944df4ff0eeba5" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>condition</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a3c1bc5920dcde9b0823a845033e20a15" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>done</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a6763358debe1a6991e731be783236718" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>publisher</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a48ea85d617a85cc4aed5e69664d77c23" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>robot_stop</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a7a3af5bcfdd0b453c271000129a8e915" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>run</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1aba3a0e9100c57996c65d96ee3c8c0793" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>speed</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a4b551fa94b5303d75301d592733393b6" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>stop</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a38191a6e7e82e7a30e4a5e4ef1883399" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>th</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a581eb635d15b693aaf403d50d2068aff" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>timeout</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a54a61a55d0c7af830675a595d8dde5c7" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>turn</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1ab0548a548f5342c6fb96d896b56a6560" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>update</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a2c8d4f942598d35132fb1b0151cd24a2" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>wait_for_subscribers</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1aa5059b9ec024db4f646b72a0be8d176c" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>x</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1a9147865097c00605dbe974f919c28d7a" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>y</name></member>
+      <member refid="classmodality2_1_1_publish_thread_1add95394a028cf43bb933d4d796fb1d03" prot="public" virt="non-virtual"><scope>modality2::PublishThread</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

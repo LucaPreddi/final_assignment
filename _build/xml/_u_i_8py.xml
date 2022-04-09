@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="_u_i_8py" kind="file" language="Python">
+    <compoundname>UI.py</compoundname>
+    <innerclass refid="class_u_i_1_1colorz" prot="public">UI::colorz</innerclass>
+    <innernamespace refid="namespace_u_i">UI</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespace_u_i" refkind="compound"><highlight class="comment">#!/usr/bin/env<sp/>python3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral">..<sp/>module::<sp/>UI</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"><sp/>:synopsis:<sp/>Module<sp/>for<sp/>the<sp/>user<sp/>interface.</highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>Luca<sp/>Predieri<sp/>&lt;luca.predieri2018@gmail.com&gt;</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"><sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral">This<sp/>code<sp/>is<sp/>the<sp/>core<sp/>of<sp/>the<sp/>program.<sp/>We<sp/>need<sp/>the<sp/>user<sp/>to<sp/>choose<sp/>one<sp/>of<sp/>the<sp/>modality,<sp/>so<sp/>we<sp/>have<sp/>to<sp/>active<sp/>one<sp/>while<sp/>the<sp/>others<sp/>are<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral">waiting.</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Importing<sp/>the<sp/>libraries.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>os</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>signal</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Implementing<sp/>class<sp/>with<sp/>the<sp/>colors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="class_u_i_1_1colorz" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_u_i_1_1colorz" kindref="compound">colorz</ref>:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>WHITE<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[95m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>BLUE<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[94m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>CYAN<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[96m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>GREEN<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[92m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>YELLOW<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[93m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>RED<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[91m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[0m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>BOLD<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[1m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Declaring<sp/>strings<sp/>with<sp/>some<sp/>messages<sp/>to<sp/>display.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">intro<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;<sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.GREEN<sp/>+<sp/>colorz.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="37"><highlight class="stringliteral">Hi!<sp/>This<sp/>is<sp/>your<sp/>User<sp/>Interface<sp/>&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="38"><highlight class="stringliteral">You<sp/>can<sp/>move<sp/>the<sp/>robot<sp/>through<sp/>three<sp/>different<sp/>modalities:&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">menu_msg<sp/>=<sp/>colorz.END<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="41"><highlight class="stringliteral">[1]<sp/>&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.CYAN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Insert<sp/>and<sp/>reach<sp/>automatically<sp/>your<sp/>desired<sp/>position.&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="42"><highlight class="stringliteral">[2]<sp/>&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.CYAN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Drive<sp/>the<sp/>robot<sp/>using<sp/>your<sp/>keyboard.<sp/>&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END<sp/>+</highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="43"><highlight class="stringliteral">[3]<sp/>&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.CYAN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Drive<sp/>the<sp/>robot<sp/>using<sp/>your<sp/>keyboard<sp/>assisted<sp/>by<sp/>the<sp/>program.&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="44"><highlight class="stringliteral">[4]<sp/>&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.RED<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Quit<sp/>the<sp/>simulation.</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Defining<sp/>function<sp/>switch(),<sp/>this<sp/>function<sp/>will<sp/>start<sp/>the<sp/>different</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">#<sp/>modalities<sp/>depending<sp/>on<sp/>what<sp/>the<sp/>user<sp/>decides<sp/>to<sp/>choose.<sp/>The<sp/>variable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">#<sp/>boolprint<sp/>is<sp/>used<sp/>to<sp/>wait<sp/>in<sp/>the<sp/>first<sp/>modality<sp/>the<sp/>end<sp/>of<sp/>the<sp/>task.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">boolprint<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespace_u_i_1af3f0c47b898b4faefe9590abdba34067" kindref="member">switch</ref>():</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>This<sp/>function<sp/>will<sp/>start<sp/>the<sp/>different<sp/>modalities<sp/>depending<sp/>on<sp/>what<sp/>the<sp/>user<sp/>decides<sp/>to<sp/>choose.<sp/>The<sp/>variable<sp/>boolprint<sp/>is<sp/>used<sp/>to<sp/>wait<sp/>in<sp/>the<sp/>first<sp/>modality<sp/>the<sp/>end<sp/>of<sp/>the<sp/>task.</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>The<sp/>input<sp/>is<sp/>got<sp/>with<sp/>the<sp/>function<sp/>``input()``.<sp/>This<sp/>is<sp/>the<sp/>core<sp/>of<sp/>the<sp/>program<sp/>because<sp/>it<sp/>gives<sp/>the<sp/>user<sp/>the<sp/>possibility<sp/>to<sp/>choose</highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>the<sp/>modality.</highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>it<sp/>is<sp/>important<sp/>to<sp/>say<sp/>that<sp/>the<sp/>code<sp/>manages<sp/>the<sp/>possibility<sp/>of<sp/>the<sp/>first<sp/>modality<sp/>to<sp/>cancel<sp/>the<sp/>goal<sp/>to<sp/>be<sp/>reached.</highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="61"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>none.</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>boolprint<sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>print(menu_msg)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>boolprint<sp/>==<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.YELLOW<sp/>+<sp/>colorz.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Press<sp/>[0]<sp/>for<sp/>canceling<sp/>the<sp/>target.&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>boolprint<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>command<sp/>=<sp/>input(colorz.WHITE<sp/>+<sp/></highlight><highlight class="stringliteral">&apos;Instert<sp/>a<sp/>command<sp/>\n&apos;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;Command:<sp/>the<sp/>variable<sp/>to<sp/>assign<sp/>the<sp/>modality.</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Setting<sp/>all<sp/>the<sp/>modalities<sp/>idle.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>command<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;0&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.set_param(</highlight><highlight class="stringliteral">&apos;active&apos;</highlight><highlight class="normal">,<sp/>0)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.GREEN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Idle.&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active_=rospy.get_param(</highlight><highlight class="stringliteral">&quot;/active&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(active_)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Starting<sp/>the<sp/>first<sp/>modality,<sp/>then<sp/>asking<sp/>the<sp/>user<sp/>which<sp/>position<sp/>he<sp/>wants<sp/>to<sp/>reach.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Once<sp/>the<sp/>position<sp/>is<sp/>written<sp/>we<sp/>set<sp/>the<sp/>position<sp/>on<sp/>the<sp/>parameters,<sp/>these<sp/>will<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>read<sp/>by<sp/>the<sp/>first<sp/>modality.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>command<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.set_param(</highlight><highlight class="stringliteral">&apos;active&apos;</highlight><highlight class="normal">,<sp/>0)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.GREEN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Modality<sp/>1<sp/>is<sp/>active.&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active_=rospy.get_param(</highlight><highlight class="stringliteral">&quot;/active&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.BLUE<sp/>+<sp/>colorz.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Where<sp/>do<sp/>you<sp/>want<sp/>the<sp/>robot<sp/>to<sp/>go?&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>des_x_input<sp/>=<sp/>float(input(colorz.BOLD<sp/>+<sp/>colorz.BLUE<sp/>+</highlight><highlight class="stringliteral">&quot;Insert<sp/>the<sp/>desired<sp/>x<sp/>position:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END))</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>des_y_input<sp/>=<sp/>float(input(colorz.BOLD<sp/>+<sp/>colorz.BLUE<sp/>+</highlight><highlight class="stringliteral">&quot;Insert<sp/>the<sp/>desired<sp/>y<sp/>position:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END))</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.GREEN<sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Now<sp/>we<sp/>try<sp/>to<sp/>reach<sp/>the<sp/>position<sp/>x<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>str(des_x_input)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>,<sp/>y<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>str(des_y_input)<sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.GREEN<sp/><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>robot<sp/>is<sp/>moving<sp/>towards<sp/>your<sp/>desired<sp/>target!&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.set_param(</highlight><highlight class="stringliteral">&apos;des_pos_x&apos;</highlight><highlight class="normal">,<sp/>des_x_input)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.set_param(</highlight><highlight class="stringliteral">&apos;des_pos_y&apos;</highlight><highlight class="normal">,<sp/>des_y_input)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.set_param(</highlight><highlight class="stringliteral">&apos;active&apos;</highlight><highlight class="normal">,<sp/>1)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>boolprint=</highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Starting<sp/>the<sp/>second<sp/>modality.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>command<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;2&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.set_param(</highlight><highlight class="stringliteral">&apos;active&apos;</highlight><highlight class="normal">,<sp/>2)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.GREEN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Modality<sp/>2<sp/>is<sp/>active.&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active_<sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&quot;/active&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Starting<sp/>the<sp/>third<sp/>modality.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>command<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;3&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.set_param(</highlight><highlight class="stringliteral">&apos;active&apos;</highlight><highlight class="normal">,<sp/>3)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.GREEN<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Modality<sp/>3<sp/>is<sp/>active.&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>active_=rospy.get_param(</highlight><highlight class="stringliteral">&quot;/active&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>we<sp/>want<sp/>to<sp/>quit<sp/>the<sp/>program,<sp/>we<sp/>press<sp/>4.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>command<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;4&quot;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.YELLOW<sp/>+<sp/>colorz.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Exiting...&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>os.kill(os.getpid(),<sp/>signal.SIGKILL)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>the<sp/>user<sp/>presses<sp/>anything<sp/>else,<sp/>we<sp/>want<sp/>to<sp/>quit<sp/>the<sp/>program.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.RED<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Wrong<sp/>key!&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">#<sp/>What<sp/>we<sp/>want<sp/>now,<sp/>is<sp/>to<sp/>call<sp/>the<sp/>functions<sp/>created<sp/>and<sp/>printing<sp/>the<sp/>starting<sp/>message.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">main():</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>print(intro)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/>rospy.is_shutdown():</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_u_i_1af3f0c47b898b4faefe9590abdba34067" kindref="member">switch</ref>()</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>main()</highlight></codeline>
+    </programlisting>
+    <location file="scripts/UI.py"/>
+  </compounddef>
+</doxygen>

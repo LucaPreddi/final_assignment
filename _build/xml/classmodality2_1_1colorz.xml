@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classmodality2_1_1colorz" kind="class" language="Python" prot="public">
+    <compoundname>modality2::colorz</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmodality2_1_1colorz_1a4b61becb1ce31cd6d13b3e8cb9051f8a" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality2.colorz::BLUE</definition>
+        <argsstring></argsstring>
+        <name>BLUE</name>
+        <initializer>=  &apos;\033[94m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="28" column="1" bodyfile="scripts/modality2.py" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1colorz_1a9a9d9106814b9f2f7cce902ff366abc3" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality2.colorz::GREEN</definition>
+        <argsstring></argsstring>
+        <name>GREEN</name>
+        <initializer>=  &apos;\033[92m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="29" column="1" bodyfile="scripts/modality2.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1colorz_1a9c12dea62b9086a3c79206938bfb299e" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality2.colorz::END</definition>
+        <argsstring></argsstring>
+        <name>END</name>
+        <initializer>=  &apos;\033[0m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="30" column="1" bodyfile="scripts/modality2.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality2_1_1colorz_1a5a2b2a22864e7ad724fbd301d8bf3a30" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality2.colorz::BOLD</definition>
+        <argsstring></argsstring>
+        <name>BOLD</name>
+        <initializer>=  &apos;\033[1m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="31" column="1" bodyfile="scripts/modality2.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="scripts/modality2.py" line="27" column="1" bodyfile="scripts/modality2.py" bodystart="27" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classmodality2_1_1colorz_1a4b61becb1ce31cd6d13b3e8cb9051f8a" prot="public" virt="non-virtual"><scope>modality2::colorz</scope><name>BLUE</name></member>
+      <member refid="classmodality2_1_1colorz_1a5a2b2a22864e7ad724fbd301d8bf3a30" prot="public" virt="non-virtual"><scope>modality2::colorz</scope><name>BOLD</name></member>
+      <member refid="classmodality2_1_1colorz_1a9c12dea62b9086a3c79206938bfb299e" prot="public" virt="non-virtual"><scope>modality2::colorz</scope><name>END</name></member>
+      <member refid="classmodality2_1_1colorz_1a9a9d9106814b9f2f7cce902ff366abc3" prot="public" virt="non-virtual"><scope>modality2::colorz</scope><name>GREEN</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

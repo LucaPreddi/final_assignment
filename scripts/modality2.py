@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
 
+"""
+.. module:: Modality2
+ :platform: Unix
+ :synopsis: Module for the second modality.
+
+.. moduleauthor:: Luca Predieri <luca.predieri2018@gmail.com>
+ 
+This code is just the already existing teleop_twist_keyboard package on ROS. Some of the code has been modified in  order to incorporate
+the script with the final_assignment package. Some code won't be commented as gar as you can check the ROS wiki package of it by googling it.
+Anyway, here's the link for getting deeper in the code: http://wiki.ros.org/teleop_twist_keyboard
+
+"""
+
 # Importing the libraries.
 
 from __future__ import print_function
@@ -146,6 +159,12 @@ class PublishThread(threading.Thread):
     # to publish it.
 
     def robot_stop(self):
+        """
+        Function to stop the robot.
+        
+        Args:
+         self
+        """
         twist = Twist()
         twist.linear.x = 0
         twist.linear.y = 0
@@ -192,6 +211,14 @@ class PublishThread(threading.Thread):
 # Defining getKey, with which we'll get the input from the keyboard.
 
 def getKey(key_timeout):
+    """
+    Function to get the input from the keyboard without having the need to wait for the user to press enter.
+    
+    Args:
+     key_timeout
+    Returns:
+     the key.
+    """
     tty.setraw(sys.stdin.fileno())
     rlist, _, _ = select.select([sys.stdin], [], [], key_timeout)
     if rlist:
@@ -201,9 +228,20 @@ def getKey(key_timeout):
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     return key
 
+def main():
+    """
+    The main here is really important because as the different input arrives it changes the key moving the robots.
+    As the other two modalities, we have again ``active`` which permits the user to use the modality as he wants.
+
+    """
 
 if __name__=="__main__":
 
+    """
+    In this code we don't have the main function but we just use the famous if __name__ of python.
+    The code here is needed.
+
+    """
     # Starting boolprint to 1 to print the first infos.
 
     boolprint = 1

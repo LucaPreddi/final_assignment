@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 
+"""
+.. module:: UI
+ :platform: Unix
+ :synopsis: Module for the user interface.
+
+.. moduleauthor:: Luca Predieri <luca.predieri2018@gmail.com>
+ 
+This code is the core of the program. We need the user to choose one of the modality, so we have to active one while the others are 
+waiting.
+
+"""
+
 # Importing the libraries.
 
 import rospy
@@ -38,6 +50,16 @@ menu_msg = colorz.END + """
 
 boolprint = False
 def switch():
+	"""
+	This function will start the different modalities depending on what the user decides to choose. The variable boolprint is used to wait in the first modality the end of the task.
+	The input is got with the function ``input()``. This is the core of the program because it gives the user the possibility to choose
+	the modality.
+
+	it is important to say that the code manages the possibility of the first modality to cancel the goal to be reached.
+	
+	Args:
+		none.
+	"""
 	global boolprint 
 	print(menu_msg)
 
@@ -45,6 +67,8 @@ def switch():
 		print(colorz.YELLOW + colorz.BOLD + "Press [0] for canceling the target." + colorz.END)
 		boolprint = False
 	command = input(colorz.WHITE + 'Instert a command \n' + colorz.END)
+	"""Command: the variable to assign the modality.
+	"""
 
 	# Setting all the modalities idle.
 	
@@ -105,4 +129,5 @@ def main():
 	while not rospy.is_shutdown():
 		switch()
 
-main()
+if __name__ == '__main__':
+    main()

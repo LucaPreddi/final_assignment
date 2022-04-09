@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classmodality3_1_1_publish_thread" kind="class" language="Python" prot="public">
+    <compoundname>modality3::PublishThread</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Thread</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1a8841030d10df81bf478e655f56e36546" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::publisher</definition>
+        <argsstring></argsstring>
+        <name>publisher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="103" column="1" bodyfile="scripts/modality3.py" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1a99f262220d74e47f18f77e8d6a29f201" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="104" column="1" bodyfile="scripts/modality3.py" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1af9f70135692a0587417c055831f26689" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="105" column="1" bodyfile="scripts/modality3.py" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1a8b3e7c990bd24ae5f0474a3e9c1f8960" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="106" column="1" bodyfile="scripts/modality3.py" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1affc9a99fc3cbe66c27d77b75977d445f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::th</definition>
+        <argsstring></argsstring>
+        <name>th</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="107" column="1" bodyfile="scripts/modality3.py" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1aeadedab3b113486ba141d4f10765cb39" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="108" column="1" bodyfile="scripts/modality3.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1a045385af79ee3ae954f9c3202d772a46" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::turn</definition>
+        <argsstring></argsstring>
+        <name>turn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="109" column="1" bodyfile="scripts/modality3.py" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1a607bd72b4cf3ad0d3de7041e3973b87c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::condition</definition>
+        <argsstring></argsstring>
+        <name>condition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="110" column="1" bodyfile="scripts/modality3.py" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1a5cd67985b05736cd25442f489015d19d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::done</definition>
+        <argsstring></argsstring>
+        <name>done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="111" column="1" bodyfile="scripts/modality3.py" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality3_1_1_publish_thread_1ade09219cd2df804ebb08176f6ebaef51" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality3.PublishThread::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="117" column="1" bodyfile="scripts/modality3.py" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmodality3_1_1_publish_thread_1af22d469c6fa9e45cee916a41573c12c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality3.PublishThread.__init__</definition>
+        <argsstring>(self, rate)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>rate</type>
+          <defname>rate</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="101" column="1" bodyfile="scripts/modality3.py" bodystart="101" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality3_1_1_publish_thread_1ae249323566380b62f90ff6bf56f0a76e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality3.PublishThread.wait_for_subscribers</definition>
+        <argsstring>(self)</argsstring>
+        <name>wait_for_subscribers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="123" column="1" bodyfile="scripts/modality3.py" bodystart="123" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality3_1_1_publish_thread_1ace70ac4c58fe7796bb56c8152ce70ccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality3.PublishThread.update</definition>
+        <argsstring>(self, x, y, z, th, speed, turn)</argsstring>
+        <name>update</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>y</type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>z</type>
+          <defname>z</defname>
+        </param>
+        <param>
+          <type>th</type>
+          <defname>th</defname>
+        </param>
+        <param>
+          <type>speed</type>
+          <defname>speed</defname>
+        </param>
+        <param>
+          <type>turn</type>
+          <defname>turn</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="134" column="1" bodyfile="scripts/modality3.py" bodystart="134" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality3_1_1_publish_thread_1a1109f15f00352832251a7d408ef6f2c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality3.PublishThread.stop</definition>
+        <argsstring>(self)</argsstring>
+        <name>stop</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="146" column="1" bodyfile="scripts/modality3.py" bodystart="146" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality3_1_1_publish_thread_1ac8c7165fa6e11bb79d1b84ed72324db6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality3.PublishThread.my_stop</definition>
+        <argsstring>(self)</argsstring>
+        <name>my_stop</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="151" column="1" bodyfile="scripts/modality3.py" bodystart="151" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classmodality3_1_1_publish_thread_1ad5303b47f3a0e604fee769f7745f48b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality3.PublishThread.run</definition>
+        <argsstring>(self)</argsstring>
+        <name>run</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality3.py" line="162" column="1" bodyfile="scripts/modality3.py" bodystart="162" bodyend="192"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>modality3.PublishThread</label>
+        <link refid="classmodality3_1_1_publish_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>threading::Thread</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>modality3.PublishThread</label>
+        <link refid="classmodality3_1_1_publish_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>threading::Thread</label>
+      </node>
+    </collaborationgraph>
+    <location file="scripts/modality3.py" line="99" column="1" bodyfile="scripts/modality3.py" bodystart="99" bodyend="193"/>
+    <listofallmembers>
+      <member refid="classmodality3_1_1_publish_thread_1af22d469c6fa9e45cee916a41573c12c9" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>__init__</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1a607bd72b4cf3ad0d3de7041e3973b87c" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>condition</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1a5cd67985b05736cd25442f489015d19d" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>done</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1ac8c7165fa6e11bb79d1b84ed72324db6" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>my_stop</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1a8841030d10df81bf478e655f56e36546" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>publisher</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1ad5303b47f3a0e604fee769f7745f48b0" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>run</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1aeadedab3b113486ba141d4f10765cb39" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>speed</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1a1109f15f00352832251a7d408ef6f2c7" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>stop</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1affc9a99fc3cbe66c27d77b75977d445f" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>th</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1ade09219cd2df804ebb08176f6ebaef51" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>timeout</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1a045385af79ee3ae954f9c3202d772a46" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>turn</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1ace70ac4c58fe7796bb56c8152ce70ccd" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>update</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1ae249323566380b62f90ff6bf56f0a76e" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>wait_for_subscribers</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1a99f262220d74e47f18f77e8d6a29f201" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>x</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1af9f70135692a0587417c055831f26689" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>y</name></member>
+      <member refid="classmodality3_1_1_publish_thread_1a8b3e7c990bd24ae5f0474a3e9c1f8960" prot="public" virt="non-virtual"><scope>modality3::PublishThread</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespace_u_i" kind="namespace" language="Python">
+    <compoundname>UI</compoundname>
+    <innerclass refid="class_u_i_1_1colorz" prot="public">UI::colorz</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_u_i_1a25a43db0b31fde4f22293fc0488ec958" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string UI.intro</definition>
+        <argsstring></argsstring>
+        <name>intro</name>
+        <initializer>=  &quot;&quot;&quot; 
+&quot;&quot;&quot; + colorz.GREEN + colorz.BOLD + &quot;&quot;&quot;
+Hi! This is your User Interface &quot;&quot;&quot; + colorz.END + &quot;&quot;&quot;
+You can move the robot through three different modalities:&quot;&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="35" column="1" bodyfile="scripts/UI.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_u_i_1af2f986ba9434ec038f186de31f10bc60" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string UI.menu_msg</definition>
+        <argsstring></argsstring>
+        <name>menu_msg</name>
+        <initializer>=  colorz.END + &quot;&quot;&quot;
+[1] &quot;&quot;&quot; + colorz.CYAN + &quot;&quot;&quot;Insert and reach automatically your desired position.&quot;&quot;&quot; + colorz.END + &quot;&quot;&quot;
+[2] &quot;&quot;&quot; + colorz.CYAN + &quot;&quot;&quot;Drive the robot using your keyboard. &quot;&quot;&quot; + colorz.END +&quot;&quot;&quot;
+[3] &quot;&quot;&quot; + colorz.CYAN + &quot;&quot;&quot;Drive the robot using your keyboard assisted by the program.&quot;&quot;&quot; + colorz.END + &quot;&quot;&quot;
+[4] &quot;&quot;&quot; + colorz.RED + &quot;&quot;&quot;Quit the simulation.
+&quot;&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="40" column="1" bodyfile="scripts/UI.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_u_i_1a96298e1703f271260bcff35de11c98c1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UI.boolprint</definition>
+        <argsstring></argsstring>
+        <name>boolprint</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="51" column="1" bodyfile="scripts/UI.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_u_i_1af3f0c47b898b4faefe9590abdba34067" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def UI.switch</definition>
+        <argsstring>()</argsstring>
+        <name>switch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>This function will start the different modalities depending on what the user decides to choose. The variable boolprint is used to wait in the first modality the end of the task.
+The input is got with the function ``input()``. This is the core of the program because it gives the user the possibility to choose
+the modality.
+
+it is important to say that the code manages the possibility of the first modality to cancel the goal to be reached.
+
+Args:
+    none.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="52" column="1" bodyfile="scripts/UI.py" bodystart="52" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_u_i_1a4570e2a9d5f1ddf4f326ca5f62269e4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def UI.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="127" column="1" bodyfile="scripts/UI.py" bodystart="127" bodyend="131"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: UI
+ :platform: Unix
+ :synopsis: Module for the user interface.
+
+.. moduleauthor:: Luca Predieri &lt;luca.predieri2018@gmail.com&gt;
+ 
+This code is the core of the program. We need the user to choose one of the modality, so we have to active one while the others are 
+waiting.</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/UI.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classmodality1_1_1colorz" kind="class" language="Python" prot="public">
+    <compoundname>modality1::colorz</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmodality1_1_1colorz_1ab5bf43d575cda576cc3e9dd69560a221" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality1.colorz::BLUE</definition>
+        <argsstring></argsstring>
+        <name>BLUE</name>
+        <initializer>=  &apos;\033[94m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="34" column="1" bodyfile="scripts/modality1.py" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality1_1_1colorz_1a65b6f92e7fc249f9cb6d1871a6934028" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality1.colorz::GREEN</definition>
+        <argsstring></argsstring>
+        <name>GREEN</name>
+        <initializer>=  &apos;\033[92m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="35" column="1" bodyfile="scripts/modality1.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality1_1_1colorz_1a4c955f837ff583f32e9e9b6dac07d07f" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality1.colorz::RED</definition>
+        <argsstring></argsstring>
+        <name>RED</name>
+        <initializer>=  &apos;\033[91m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="36" column="1" bodyfile="scripts/modality1.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality1_1_1colorz_1a40566e439bdd8e2e90a8c45450652bb8" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality1.colorz::END</definition>
+        <argsstring></argsstring>
+        <name>END</name>
+        <initializer>=  &apos;\033[0m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="37" column="1" bodyfile="scripts/modality1.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmodality1_1_1colorz_1ae2e914d938930206f18f8bb9b8d783af" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string modality1.colorz::BOLD</definition>
+        <argsstring></argsstring>
+        <name>BOLD</name>
+        <initializer>=  &apos;\033[1m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="38" column="1" bodyfile="scripts/modality1.py" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="scripts/modality1.py" line="33" column="1" bodyfile="scripts/modality1.py" bodystart="33" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classmodality1_1_1colorz_1ab5bf43d575cda576cc3e9dd69560a221" prot="public" virt="non-virtual"><scope>modality1::colorz</scope><name>BLUE</name></member>
+      <member refid="classmodality1_1_1colorz_1ae2e914d938930206f18f8bb9b8d783af" prot="public" virt="non-virtual"><scope>modality1::colorz</scope><name>BOLD</name></member>
+      <member refid="classmodality1_1_1colorz_1a40566e439bdd8e2e90a8c45450652bb8" prot="public" virt="non-virtual"><scope>modality1::colorz</scope><name>END</name></member>
+      <member refid="classmodality1_1_1colorz_1a65b6f92e7fc249f9cb6d1871a6934028" prot="public" virt="non-virtual"><scope>modality1::colorz</scope><name>GREEN</name></member>
+      <member refid="classmodality1_1_1colorz_1a4c955f837ff583f32e9e9b6dac07d07f" prot="public" virt="non-virtual"><scope>modality1::colorz</scope><name>RED</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

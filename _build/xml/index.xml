@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classmodality1_1_1colorz" kind="class"><name>modality1::colorz</name>
+    <member refid="classmodality1_1_1colorz_1ab5bf43d575cda576cc3e9dd69560a221" kind="variable"><name>BLUE</name></member>
+    <member refid="classmodality1_1_1colorz_1a65b6f92e7fc249f9cb6d1871a6934028" kind="variable"><name>GREEN</name></member>
+    <member refid="classmodality1_1_1colorz_1a4c955f837ff583f32e9e9b6dac07d07f" kind="variable"><name>RED</name></member>
+    <member refid="classmodality1_1_1colorz_1a40566e439bdd8e2e90a8c45450652bb8" kind="variable"><name>END</name></member>
+    <member refid="classmodality1_1_1colorz_1ae2e914d938930206f18f8bb9b8d783af" kind="variable"><name>BOLD</name></member>
+  </compound>
+  <compound refid="classmodality2_1_1colorz" kind="class"><name>modality2::colorz</name>
+    <member refid="classmodality2_1_1colorz_1a4b61becb1ce31cd6d13b3e8cb9051f8a" kind="variable"><name>BLUE</name></member>
+    <member refid="classmodality2_1_1colorz_1a9a9d9106814b9f2f7cce902ff366abc3" kind="variable"><name>GREEN</name></member>
+    <member refid="classmodality2_1_1colorz_1a9c12dea62b9086a3c79206938bfb299e" kind="variable"><name>END</name></member>
+    <member refid="classmodality2_1_1colorz_1a5a2b2a22864e7ad724fbd301d8bf3a30" kind="variable"><name>BOLD</name></member>
+  </compound>
+  <compound refid="classmodality3_1_1colorz" kind="class"><name>modality3::colorz</name>
+    <member refid="classmodality3_1_1colorz_1a76c9a0dd280b8e86b859937c7f90dc56" kind="variable"><name>BLUE</name></member>
+    <member refid="classmodality3_1_1colorz_1aecc58d023d20ec6ac477eb7cdd0ffec2" kind="variable"><name>GREEN</name></member>
+    <member refid="classmodality3_1_1colorz_1aa03186ffaf419a98492e6b9dd9a6359e" kind="variable"><name>RED</name></member>
+    <member refid="classmodality3_1_1colorz_1a5d237a8e68f31496e6a0c36b092743de" kind="variable"><name>END</name></member>
+    <member refid="classmodality3_1_1colorz_1af32f3b9c21e4a760e5b0d54c6aa429c5" kind="variable"><name>BOLD</name></member>
+  </compound>
+  <compound refid="class_u_i_1_1colorz" kind="class"><name>UI::colorz</name>
+    <member refid="class_u_i_1_1colorz_1a5bc4af8ba8098f0fce31c920b4792cbd" kind="variable"><name>WHITE</name></member>
+    <member refid="class_u_i_1_1colorz_1a70d15d598b691ba949e3045371e048de" kind="variable"><name>BLUE</name></member>
+    <member refid="class_u_i_1_1colorz_1a400d8329d748e68fd4d1a5a45c6f68f4" kind="variable"><name>CYAN</name></member>
+    <member refid="class_u_i_1_1colorz_1a8b4edbf23e0d28e20a246ccce9a3cd6d" kind="variable"><name>GREEN</name></member>
+    <member refid="class_u_i_1_1colorz_1ac6167e88993f8bbd06d2a6d6d95917c2" kind="variable"><name>YELLOW</name></member>
+    <member refid="class_u_i_1_1colorz_1a4adaf7280f2fb9e24d8a8caf6dccf0f1" kind="variable"><name>RED</name></member>
+    <member refid="class_u_i_1_1colorz_1afdc76c5dea86c7480ce3308fdb71cf89" kind="variable"><name>END</name></member>
+    <member refid="class_u_i_1_1colorz_1af705adeb9f77ffc4d2adbae3fd337069" kind="variable"><name>BOLD</name></member>
+  </compound>
+  <compound refid="classmodality2_1_1_publish_thread" kind="class"><name>modality2::PublishThread</name>
+    <member refid="classmodality2_1_1_publish_thread_1a6763358debe1a6991e731be783236718" kind="variable"><name>publisher</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1aa5059b9ec024db4f646b72a0be8d176c" kind="variable"><name>x</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a9147865097c00605dbe974f919c28d7a" kind="variable"><name>y</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1add95394a028cf43bb933d4d796fb1d03" kind="variable"><name>z</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a38191a6e7e82e7a30e4a5e4ef1883399" kind="variable"><name>th</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1aba3a0e9100c57996c65d96ee3c8c0793" kind="variable"><name>speed</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a54a61a55d0c7af830675a595d8dde5c7" kind="variable"><name>turn</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a41313a63921a4b466e944df4ff0eeba5" kind="variable"><name>condition</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a3c1bc5920dcde9b0823a845033e20a15" kind="variable"><name>done</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a581eb635d15b693aaf403d50d2068aff" kind="variable"><name>timeout</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a16837fd79a5ce02184433f26b6c318eb" kind="function"><name>__init__</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a2c8d4f942598d35132fb1b0151cd24a2" kind="function"><name>wait_for_subscribers</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1ab0548a548f5342c6fb96d896b56a6560" kind="function"><name>update</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a4b551fa94b5303d75301d592733393b6" kind="function"><name>stop</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a48ea85d617a85cc4aed5e69664d77c23" kind="function"><name>robot_stop</name></member>
+    <member refid="classmodality2_1_1_publish_thread_1a7a3af5bcfdd0b453c271000129a8e915" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="classmodality3_1_1_publish_thread" kind="class"><name>modality3::PublishThread</name>
+    <member refid="classmodality3_1_1_publish_thread_1a8841030d10df81bf478e655f56e36546" kind="variable"><name>publisher</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1a99f262220d74e47f18f77e8d6a29f201" kind="variable"><name>x</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1af9f70135692a0587417c055831f26689" kind="variable"><name>y</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1a8b3e7c990bd24ae5f0474a3e9c1f8960" kind="variable"><name>z</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1affc9a99fc3cbe66c27d77b75977d445f" kind="variable"><name>th</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1aeadedab3b113486ba141d4f10765cb39" kind="variable"><name>speed</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1a045385af79ee3ae954f9c3202d772a46" kind="variable"><name>turn</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1a607bd72b4cf3ad0d3de7041e3973b87c" kind="variable"><name>condition</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1a5cd67985b05736cd25442f489015d19d" kind="variable"><name>done</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1ade09219cd2df804ebb08176f6ebaef51" kind="variable"><name>timeout</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1af22d469c6fa9e45cee916a41573c12c9" kind="function"><name>__init__</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1ae249323566380b62f90ff6bf56f0a76e" kind="function"><name>wait_for_subscribers</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1ace70ac4c58fe7796bb56c8152ce70ccd" kind="function"><name>update</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1a1109f15f00352832251a7d408ef6f2c7" kind="function"><name>stop</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1ac8c7165fa6e11bb79d1b84ed72324db6" kind="function"><name>my_stop</name></member>
+    <member refid="classmodality3_1_1_publish_thread_1ad5303b47f3a0e604fee769f7745f48b0" kind="function"><name>run</name></member>
+  </compound>
+  <compound refid="namespacemodality1" kind="namespace"><name>modality1</name>
+    <member refid="namespacemodality1_1ab7e5d1ed9401a64179240dd993ffc32f" kind="variable"><name>msg</name></member>
+    <member refid="namespacemodality1_1a2fd02bcc2ee283d8ea87a46bd832b034" kind="variable"><name>goal_msg</name></member>
+    <member refid="namespacemodality1_1a4c5252887d5f6d32c166297474ac2738" kind="variable"><name>achieved</name></member>
+    <member refid="namespacemodality1_1aab53cdda1c038902558400b52d894469" kind="variable"><name>active_</name></member>
+    <member refid="namespacemodality1_1abeb56f2fabb9e5a5aef6edc0d8527070" kind="variable"><name>desired_position_x</name></member>
+    <member refid="namespacemodality1_1af182557be824981db2f15072ff463076" kind="variable"><name>desired_position_y</name></member>
+    <member refid="namespacemodality1_1a616dd3eef0bee412e3031d9fc175d881" kind="function"><name>ActionClient</name></member>
+    <member refid="namespacemodality1_1a0f8dc8c465d7f4bae24dd9b20610f31f" kind="function"><name>done_cb</name></member>
+    <member refid="namespacemodality1_1ab3a0c511c79ab7e52c398628d9a9bddd" kind="function"><name>active_cb</name></member>
+    <member refid="namespacemodality1_1a932fdb1cddbafe44a0f18c7696f0bca7" kind="function"><name>feedback_cb</name></member>
+    <member refid="namespacemodality1_1ae6f6e5c7ad7a33b3a1cc8d9dbd95fff9" kind="function"><name>SetGoal</name></member>
+    <member refid="namespacemodality1_1a6bb96756117598afba46286f05b10113" kind="function"><name>UpdatingVariables</name></member>
+    <member refid="namespacemodality1_1a177e9e2767796ff5ef6ca698511527e3" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacemodality2" kind="namespace"><name>modality2</name>
+    <member refid="namespacemodality2_1ab062746c4c02d03765583b29f25555db" kind="variable"><name>msg</name></member>
+    <member refid="namespacemodality2_1a255a2196f4be30d3c13fa6b05dcc31ed" kind="variable"><name>moveBindings</name></member>
+    <member refid="namespacemodality2_1ad79b947b1dd51d1c046e7a17ad235049" kind="variable"><name>speedBindings</name></member>
+    <member refid="namespacemodality2_1aacab91e8bbf3a68bedf533909771afdb" kind="variable"><name>boolprint</name></member>
+    <member refid="namespacemodality2_1a794905045494c22ee8ae7da8b90e6587" kind="variable"><name>settings</name></member>
+    <member refid="namespacemodality2_1a5c5f066f712e6dc7480c56833eaf1ec4" kind="variable"><name>speed</name></member>
+    <member refid="namespacemodality2_1a7109f3b8ad861300a6013f11c395c201" kind="variable"><name>turn</name></member>
+    <member refid="namespacemodality2_1a467a75e3634938bb969a877d55a4c464" kind="variable"><name>repeat</name></member>
+    <member refid="namespacemodality2_1a66e8723d8897d5b08b4ce2db0f9ca741" kind="variable"><name>key_timeout</name></member>
+    <member refid="namespacemodality2_1a29f1b19ea9fc2b8ecd14396d15662dbc" kind="variable"><name>pub_thread</name></member>
+    <member refid="namespacemodality2_1a983cbefdba88d496de903621282917b0" kind="variable"><name>x</name></member>
+    <member refid="namespacemodality2_1ace3dd61a5c9381518654abcb439f0195" kind="variable"><name>y</name></member>
+    <member refid="namespacemodality2_1a622d2e44d43077622c23d715fe376910" kind="variable"><name>z</name></member>
+    <member refid="namespacemodality2_1a91386fce04c458d6163fc479204c55d5" kind="variable"><name>th</name></member>
+    <member refid="namespacemodality2_1abc0ae5d3c95bcb4f1a237f787f5a9227" kind="variable"><name>status</name></member>
+    <member refid="namespacemodality2_1a51a8c57aae3bf94ef3c79bad7d240f24" kind="variable"><name>key</name></member>
+    <member refid="namespacemodality2_1a67ec50d4465f0d484ffcca4291abe729" kind="function"><name>getKey</name></member>
+    <member refid="namespacemodality2_1a8b8a221c8f783f844b416366fb7ce8c9" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacemodality3" kind="namespace"><name>modality3</name>
+    <member refid="namespacemodality3_1a214e4ce6f17fc74e7c2ec77ef0a0ce6a" kind="variable"><name>msg</name></member>
+    <member refid="namespacemodality3_1ac4421fad201df8a66fa0a7612877946d" kind="variable"><name>ok_left</name></member>
+    <member refid="namespacemodality3_1a5ef658ca48c3aec2569f89156181a868" kind="variable"><name>ok_right</name></member>
+    <member refid="namespacemodality3_1a19abf07a26f87842c1471926fb425ddd" kind="variable"><name>ok_straight</name></member>
+    <member refid="namespacemodality3_1a15e7bb09928f828f29859a5e395c6d03" kind="variable"><name>moveBindings</name></member>
+    <member refid="namespacemodality3_1a03946b4c1b0322c4f5ccdc9aaed7a808" kind="variable"><name>speedBindings</name></member>
+    <member refid="namespacemodality3_1ac5d9e300210477a26eb9317375c5e439" kind="variable"><name>boolprint</name></member>
+    <member refid="namespacemodality3_1a857efdda547a5f501f405af809f5ff9b" kind="variable"><name>active_</name></member>
+    <member refid="namespacemodality3_1a3032b07d30cddae1bcf2a7368704625d" kind="variable"><name>settings</name></member>
+    <member refid="namespacemodality3_1aaf57e49cd8fd73bff6a33c2c20799186" kind="variable"><name>speed</name></member>
+    <member refid="namespacemodality3_1a14da2371663bc5ad7c2617c40fc60a74" kind="variable"><name>turn</name></member>
+    <member refid="namespacemodality3_1a138b152ddfc987dc7334702ff14a7e8b" kind="variable"><name>repeat</name></member>
+    <member refid="namespacemodality3_1a17e94c21ee7e273cc008b2608cb92a9d" kind="variable"><name>key_timeout</name></member>
+    <member refid="namespacemodality3_1a8fa12323d50f64594e166239b23b1910" kind="variable"><name>sub</name></member>
+    <member refid="namespacemodality3_1a3a28f66ab1819cfcfbb0fc0fcdc2f408" kind="variable"><name>pub_thread</name></member>
+    <member refid="namespacemodality3_1a469f9573d1b1c493bafcbbf69cac0d88" kind="variable"><name>x</name></member>
+    <member refid="namespacemodality3_1a2752b8f0a3504fbb45eb1ef1c13ee672" kind="variable"><name>y</name></member>
+    <member refid="namespacemodality3_1af8ab736a00abeba33da2ea1f9bd77f57" kind="variable"><name>z</name></member>
+    <member refid="namespacemodality3_1ada0991469a32b0b22b5a70c7637cc420" kind="variable"><name>th</name></member>
+    <member refid="namespacemodality3_1ae73c734bac24c95cc952444610537976" kind="variable"><name>status</name></member>
+    <member refid="namespacemodality3_1a4c9aa7dbeb45fd880f08b892d60b6bce" kind="variable"><name>rate</name></member>
+    <member refid="namespacemodality3_1a4e9e914c1578fce2ca71dfeb88910376" kind="variable"><name>moveBindings_copy</name></member>
+    <member refid="namespacemodality3_1ae5ed39bac1197f26dda53f35ab75e569" kind="variable"><name>key</name></member>
+    <member refid="namespacemodality3_1a15e88f8f9d92f4bb5677ef18ccbd0c9a" kind="function"><name>getKey</name></member>
+    <member refid="namespacemodality3_1aa763a4ea9e94cb4b114fd50c541888dd" kind="function"><name>CallbackLaser</name></member>
+    <member refid="namespacemodality3_1ac70fe26048f469055907bddbf232b0ae" kind="function"><name>pop_it</name></member>
+    <member refid="namespacemodality3_1ad24ea422845b1715b706f22452947871" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacestd__srvs_1_1srv" kind="namespace"><name>std_srvs::srv</name>
+  </compound>
+  <compound refid="namespace_u_i" kind="namespace"><name>UI</name>
+    <member refid="namespace_u_i_1a25a43db0b31fde4f22293fc0488ec958" kind="variable"><name>intro</name></member>
+    <member refid="namespace_u_i_1af2f986ba9434ec038f186de31f10bc60" kind="variable"><name>menu_msg</name></member>
+    <member refid="namespace_u_i_1a96298e1703f271260bcff35de11c98c1" kind="variable"><name>boolprint</name></member>
+    <member refid="namespace_u_i_1af3f0c47b898b4faefe9590abdba34067" kind="function"><name>switch</name></member>
+    <member refid="namespace_u_i_1a4570e2a9d5f1ddf4f326ca5f62269e4e" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="modality1_8py" kind="file"><name>modality1.py</name>
+  </compound>
+  <compound refid="modality2_8py" kind="file"><name>modality2.py</name>
+  </compound>
+  <compound refid="modality3_8py" kind="file"><name>modality3.py</name>
+  </compound>
+  <compound refid="_u_i_8py" kind="file"><name>UI.py</name>
+  </compound>
+  <compound refid="dir_53e6fa9553ac22a5646d2a2b2d7b97a1" kind="dir"><name>scripts</name>
+  </compound>
+</doxygenindex>

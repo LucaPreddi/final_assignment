@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>scripts.modality1 &mdash; final_assignment 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> final_assignment
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">final_assignment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>scripts.modality1</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for scripts.modality1</h1><div class="highlight"><pre>
+<span></span><span class="ch">#! /usr/bin/env python3</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">.. module:: Modality1</span>
+<span class="sd"> :platform: Unix</span>
+<span class="sd"> :synopsis: Module for the first modality.</span>
+
+<span class="sd">.. moduleauthor:: Luca Predieri &lt;luca.predieri2018@gmail.com&gt;</span>
+
+<span class="sd">Subscribes to:</span>
+<span class="sd"> none</span>
+<span class="sd">Publishes to:</span>
+<span class="sd"> none</span>
+<span class="sd"> </span>
+<span class="sd">This node is needed to the first modality of the program. The node makes the robot autonomously reach a x,y position inserted by the user on the UI interface. It uses actionlib, which permits to us to make the code simplier and better. It is really important to say that we have three parameters that we get from the UI:</span>
+<span class="sd"> - ``active`` which is the variable determinating the status of the modality, if it&#39;s on or not.</span>
+<span class="sd"> - ``desired_position_x`` which communicates the desired x position.</span>
+<span class="sd"> - ``desired_position_y`` which communicates the desired y position.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Importing the libraries.</span>
+
+
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">actionlib</span>
+<span class="kn">from</span> <span class="nn">move_base_msgs.msg</span> <span class="kn">import</span> <span class="n">MoveBaseAction</span><span class="p">,</span> <span class="n">MoveBaseGoal</span>
+<span class="kn">from</span> <span class="nn">tf</span> <span class="kn">import</span> <span class="n">transformations</span>
+<span class="kn">from</span> <span class="nn">std_srvs.srv</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Implementing the class colorz, the class which assign the name </span>
+<span class="c1"># to the colors.</span>
+
+<span class="k">class</span> <span class="nc">colorz</span><span class="p">:</span>
+	<span class="n">BLUE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[94m&#39;</span>
+	<span class="n">GREEN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[92m&#39;</span>
+	<span class="n">RED</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[91m&#39;</span>
+	<span class="n">END</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span>
+	<span class="n">BOLD</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[1m&#39;</span>
+
+<span class="c1"># Implementing class with the colors.</span>
+<span class="c1"># Creating message to display later.</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; </span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">This node makes the robot autonomously reach a x,y position inserted by the user on the UI interface.</span>
+<span class="s2">It uses actionlib, which permits to us to make the code simplier and better.</span>
+<span class="s2">&quot;&quot;&quot;</span> <span class="o">+</span><span class="n">colorz</span><span class="o">.</span><span class="n">END</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Assigning to local variables the data travelling around ROS&#39; nodes.</span>
+<span class="c1"># This part is crucial.</span>
+
+<span class="n">goal_msg</span> <span class="o">=</span> <span class="n">MoveBaseGoal</span><span class="p">()</span>				<span class="c1"># Action client.</span>
+<span class="n">achieved</span> <span class="o">=</span> <span class="kc">False</span>						<span class="c1"># Variable for defining if a goal was achieved or not.</span>
+<span class="n">active_</span> <span class="o">=</span> <span class="mi">0</span>								<span class="c1"># ROS poarameter to block/unlock the modality </span>
+<span class="n">desired_position_x</span> <span class="o">=</span> <span class="mi">0</span>					<span class="c1"># X desired coordinate </span>
+<span class="n">desired_position_y</span> <span class="o">=</span> <span class="mi">0</span>					<span class="c1"># Y desired coordinate </span>
+
+
+<span class="c1"># Defining ActionClient(), the function starts the communication with wait_for_server()</span>
+<span class="c1"># The action client and server communicate over a set of topics, described in the actionlib protocol. </span>
+<span class="c1"># The action name describes the namespace naining these topics, and the action specification </span>
+<span class="c1"># message describes what messages should be passed along these topics. </span>
+
+<div class="viewcode-block" id="ActionClient"><a class="viewcode-back" href="../../index.html#scripts.modality1.ActionClient">[docs]</a><span class="k">def</span> <span class="nf">ActionClient</span><span class="p">():</span>
+
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Function to define the ActionClient and create the action.</span>
+<span class="sd">	</span>
+<span class="sd">	Args:</span>
+<span class="sd">		none.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">global</span> <span class="n">goal_msg</span>
+	<span class="k">global</span> <span class="n">client</span>
+	<span class="n">client</span><span class="o">.</span><span class="n">wait_for_server</span><span class="p">()</span>
+	<span class="n">goal_msg</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s1">&#39;map&#39;</span>			
+	<span class="n">goal_msg</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>	
+	<span class="n">goal_msg</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">orientation</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="mi">1</span>				</div>
+
+<span class="c1"># Defining done_cb() function, this function updates when status value changes</span>
+<span class="c1"># and it&#39;s the core of the action, because it changes the behaviour of the robot</span>
+<span class="c1"># the n variable </span>
+
+<div class="viewcode-block" id="done_cb"><a class="viewcode-back" href="../../index.html#scripts.modality1.done_cb">[docs]</a><span class="k">def</span> <span class="nf">done_cb</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Function to define the functionalities of the action, like advising the user of the goal received and other useful messages. We want the action to do the following dues:</span>
+<span class="sd">	 - Advising the user Advising the user that the goal was cancelled.</span>
+<span class="sd">	 - Advising the user that the goal was achieved.</span>
+<span class="sd">	 - Advising the user that the goal was aborted because the timer expired.</span>
+<span class="sd">	 - Advising the user that the goal was not accepted.</span>
+<span class="sd">	</span>
+<span class="sd">	Args:</span>
+<span class="sd">	 none</span>
+<span class="sd">	Returns:</span>
+<span class="sd">	 none</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">global</span> <span class="n">client</span>
+	<span class="k">global</span> <span class="n">achieved</span>
+
+	<span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">colorz</span><span class="o">.</span><span class="n">RED</span> <span class="o">+</span> <span class="s2">&quot;Goal received a cancel request.&quot;</span> <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">colorz</span><span class="o">.</span><span class="n">GREEN</span> <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="s2">&quot;Goal achieved!&quot;</span> <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+		<span class="n">achieved</span> <span class="o">=</span> <span class="kc">True</span>
+		<span class="k">return</span>
+	<span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">colorz</span><span class="o">.</span><span class="n">RED</span> <span class="o">+</span> <span class="n">bcolrs</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="s2">&quot;Timeout expired. Goal aborted.&quot;</span>  <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">colorz</span><span class="o">.</span><span class="n">RED</span> <span class="o">+</span> <span class="n">bcolrs</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="s2">&quot;The goal was not accepted.&quot;</span> <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">colorz</span><span class="o">.</span><span class="n">RED</span> <span class="o">+</span> <span class="n">bcolrs</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="s2">&quot;The goal received a cancel request when he didn&#39;t finish the task.&quot;</span><span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">colorz</span><span class="o">.</span><span class="n">RED</span> <span class="o">+</span> <span class="n">bcolrs</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="s2">&quot;The goal received a cancel request before it started executing. &quot;</span><span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+		<span class="k">return</span></div>
+
+<span class="c1"># No-parameter callback that gets called on transitions to Active.</span>
+
+<span class="k">def</span> <span class="nf">active_cb</span><span class="p">():</span>
+	<span class="n">k</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="c1"># Callback that gets called whenever feedback for this goal is received. Takes one parameter: the feedback. </span>
+
+<span class="k">def</span> <span class="nf">feedback_cb</span><span class="p">(</span><span class="n">feedback</span><span class="p">):</span>
+	<span class="n">k</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="c1"># SetGoal() is used to set the goal data in the goal_msg which will be published.</span>
+<span class="c1"># Sends a goal to the ActionServer, and also registers callbacks.</span>
+<span class="c1"># If a previous goal is already active when this is called. We simply forget about </span>
+<span class="c1"># that goal and start tracking the new goal. No cancel requests are made.</span>
+
+<span class="k">def</span> <span class="nf">SetGoal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+	<span class="k">global</span> <span class="n">goal_msg</span>
+	<span class="k">global</span> <span class="n">client</span>
+	<span class="n">goal_msg</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+	<span class="n">goal_msg</span><span class="o">.</span><span class="n">target_pose</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+	<span class="n">client</span><span class="o">.</span><span class="n">send_goal</span><span class="p">(</span><span class="n">goal_msg</span><span class="p">,</span> <span class="n">done_cb</span><span class="p">,</span> <span class="n">active_cb</span><span class="p">,</span> <span class="n">feedback_cb</span><span class="p">)</span>
+
+<span class="c1"># UpdatingVariables() is used to keep update the three parameters crucial to the script,</span>
+<span class="c1"># active_, desired_position_x, desired_position_y.</span>
+
+<div class="viewcode-block" id="UpdatingVariables"><a class="viewcode-back" href="../../index.html#scripts.modality1.UpdatingVariables">[docs]</a><span class="k">def</span> <span class="nf">UpdatingVariables</span><span class="p">():</span>
+
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Function to update the variables:</span>
+<span class="sd">	 - active</span>
+<span class="sd">	 - desired_position_x</span>
+<span class="sd">	 - desired_position_y</span>
+<span class="sd">	</span>
+<span class="sd">	Args:</span>
+<span class="sd">		none.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="k">global</span> <span class="n">desired_position_x</span><span class="p">,</span> <span class="n">desired_position_y</span><span class="p">,</span> <span class="n">active_</span>
+	<span class="n">active_</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">)</span>
+	<span class="n">desired_position_x</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;des_pos_x&#39;</span><span class="p">)</span>
+	<span class="n">desired_position_y</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;des_pos_y&#39;</span><span class="p">)</span></div>
+
+<span class="c1"># Defining main() function.</span>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../index.html#scripts.modality1.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Function to start all the features. The function if active is toggled or not it will do different tasks, it will wait when it is </span>
+<span class="sd">	0 and it will check the situation of the robot and the task, obviously it is all helped by the action.</span>
+<span class="sd">	</span>
+<span class="sd">	Args:</span>
+<span class="sd">		none.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+
+	<span class="k">global</span> <span class="n">client</span>
+	<span class="k">global</span> <span class="n">goal_msg</span>
+	<span class="k">global</span> <span class="n">achieved</span>
+
+	<span class="n">client</span> <span class="o">=</span> <span class="n">actionlib</span><span class="o">.</span><span class="n">SimpleActionClient</span><span class="p">(</span><span class="s1">&#39;/move_base&#39;</span><span class="p">,</span> <span class="n">MoveBaseAction</span><span class="p">)</span>		<span class="c1"># Action client.</span>
+
+	<span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;modality1&#39;</span><span class="p">)</span> <span class="c1"># Init node</span>
+
+	<span class="c1"># Running the ActionClient() function to start the communication with the action.</span>
+
+	<span class="n">ActionClient</span><span class="p">()</span>
+
+	<span class="c1"># Boolprint used in order to know if the previous state was printable.</span>
+
+	<span class="n">boolprint</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> 
+
+	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+		
+		<span class="c1"># Updating the variables (including active_).</span>
+
+		<span class="n">UpdatingVariables</span><span class="p">()</span>
+
+		<span class="c1"># If we are in Idle state but a goal was not achieved we need to cancel the goal.</span>
+		<span class="c1"># If active_ is turned to 0 we can idle the process and wait until the</span>
+		<span class="c1"># first modality is asked by the user. In any case, we want to cancel </span>
+		<span class="c1"># the goal asked by the user.</span>
+
+		<span class="k">if</span> <span class="n">active_</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			
+			<span class="c1"># If the robot is idle forced by the user we do this:</span>
+
+			<span class="k">if</span> <span class="n">boolprint</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">achieved</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+				<span class="nb">print</span><span class="p">(</span><span class="n">colorz</span><span class="o">.</span><span class="n">BLUE</span> <span class="o">+</span> <span class="s2">&quot;Modality 1 is currently in idle state. </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+				<span class="n">client</span><span class="o">.</span><span class="n">cancel_goal</span><span class="p">()</span>
+				<span class="n">boolprint</span> <span class="o">=</span> <span class="mi">1</span>
+
+			<span class="c1"># If the robot has achieved the goal.</span>
+
+			<span class="k">if</span> <span class="n">achieved</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+				<span class="n">boolprint</span> <span class="o">=</span> <span class="mi">1</span>
+				<span class="n">achieved</span> <span class="o">=</span> <span class="kc">False</span>
+
+		<span class="c1"># If active_ is turned to 1 we procede with the task of the process.</span>
+
+		<span class="k">elif</span> <span class="n">active_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+			<span class="c1"># If the prevoius state was Idle then we can set a new goal</span>
+			<span class="k">if</span> <span class="n">boolprint</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+				<span class="nb">print</span><span class="p">(</span><span class="n">colorz</span><span class="o">.</span><span class="n">GREEN</span> <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="s2">&quot;The robot is moving towards your desired target. &quot;</span> <span class="o">+</span> <span class="n">colorz</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+				<span class="n">SetGoal</span><span class="p">(</span><span class="n">desired_position_x</span><span class="p">,</span> <span class="n">desired_position_y</span><span class="p">)</span>	<span class="c1"># Here we decide to set a new goal.</span>
+				<span class="n">boolprint</span> <span class="o">=</span> <span class="mi">0</span>	<span class="c1"># If this modality will be blocked, then we have to be put in idle.</span></div>
+
+			
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Luca Predieri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

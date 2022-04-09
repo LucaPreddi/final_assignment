@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacemodality1" kind="namespace" language="Python">
+    <compoundname>modality1</compoundname>
+    <innerclass refid="classmodality1_1_1colorz" prot="public">modality1::colorz</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemodality1_1ab7e5d1ed9401a64179240dd993ffc32f" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string modality1.msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <initializer>=  &quot;&quot;&quot; 
+&quot;&quot;&quot; + colorz.BOLD + &quot;&quot;&quot;
+This node makes the robot autonomously reach a x,y position inserted by the user on the UI interface.
+It uses actionlib, which permits to us to make the code simplier and better.
+&quot;&quot;&quot; +colorz.END + &quot;&quot;&quot;
+&quot;&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="43" column="1" bodyfile="scripts/modality1.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality1_1a2fd02bcc2ee283d8ea87a46bd832b034" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality1.goal_msg</definition>
+        <argsstring></argsstring>
+        <name>goal_msg</name>
+        <initializer>=  MoveBaseGoal()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="53" column="1" bodyfile="scripts/modality1.py" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality1_1a4c5252887d5f6d32c166297474ac2738" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool modality1.achieved</definition>
+        <argsstring></argsstring>
+        <name>achieved</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="54" column="1" bodyfile="scripts/modality1.py" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality1_1aab53cdda1c038902558400b52d894469" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int modality1.active_</definition>
+        <argsstring></argsstring>
+        <name>active_</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="55" column="1" bodyfile="scripts/modality1.py" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality1_1abeb56f2fabb9e5a5aef6edc0d8527070" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int modality1.desired_position_x</definition>
+        <argsstring></argsstring>
+        <name>desired_position_x</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="56" column="1" bodyfile="scripts/modality1.py" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality1_1af182557be824981db2f15072ff463076" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int modality1.desired_position_y</definition>
+        <argsstring></argsstring>
+        <name>desired_position_y</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="57" column="1" bodyfile="scripts/modality1.py" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemodality1_1a616dd3eef0bee412e3031d9fc175d881" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality1.ActionClient</definition>
+        <argsstring>()</argsstring>
+        <name>ActionClient</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function to define the ActionClient and create the action.
+
+Args:
+    none.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="65" column="1" bodyfile="scripts/modality1.py" bodystart="65" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemodality1_1a0f8dc8c465d7f4bae24dd9b20610f31f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality1.done_cb</definition>
+        <argsstring>(status, result)</argsstring>
+        <name>done_cb</name>
+        <param>
+          <type>status</type>
+          <defname>status</defname>
+        </param>
+        <param>
+          <type>result</type>
+          <defname>result</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function to define the functionalities of the action, like advising the user of the goal received and other useful messages. We want the action to do the following dues:
+ - Advising the user Advising the user that the goal was cancelled.
+ - Advising the user that the goal was achieved.
+ - Advising the user that the goal was aborted because the timer expired.
+ - Advising the user that the goal was not accepted.
+
+Args:
+ none
+Returns:
+ none
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="84" column="1" bodyfile="scripts/modality1.py" bodystart="84" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemodality1_1ab3a0c511c79ab7e52c398628d9a9bddd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality1.active_cb</definition>
+        <argsstring>()</argsstring>
+        <name>active_cb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="122" column="1" bodyfile="scripts/modality1.py" bodystart="122" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemodality1_1a932fdb1cddbafe44a0f18c7696f0bca7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality1.feedback_cb</definition>
+        <argsstring>(feedback)</argsstring>
+        <name>feedback_cb</name>
+        <param>
+          <type>feedback</type>
+          <defname>feedback</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="127" column="1" bodyfile="scripts/modality1.py" bodystart="127" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemodality1_1ae6f6e5c7ad7a33b3a1cc8d9dbd95fff9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality1.SetGoal</definition>
+        <argsstring>(x, y)</argsstring>
+        <name>SetGoal</name>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>y</type>
+          <defname>y</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="135" column="1" bodyfile="scripts/modality1.py" bodystart="135" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemodality1_1a6bb96756117598afba46286f05b10113" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality1.UpdatingVariables</definition>
+        <argsstring>()</argsstring>
+        <name>UpdatingVariables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function to update the variables:
+ - active
+ - desired_position_x
+ - desired_position_y
+
+Args:
+    none.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="145" column="1" bodyfile="scripts/modality1.py" bodystart="145" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemodality1_1a177e9e2767796ff5ef6ca698511527e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality1.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function to start all the features. The function if active is toggled or not it will do different tasks, it will wait when it is 
+0 and it will check the situation of the robot and the task, obviously it is all helped by the action.
+
+Args:
+    none.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality1.py" line="164" column="1" bodyfile="scripts/modality1.py" bodystart="164" bodyend="228"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: Modality1
+ :platform: Unix
+ :synopsis: Module for the first modality.
+
+.. moduleauthor:: Luca Predieri &lt;luca.predieri2018@gmail.com&gt;
+
+Subscribes to:
+ none
+Publishes to:
+ none
+ 
+This node is needed to the first modality of the program. The node makes the robot autonomously reach a x,y position inserted by the user on the UI interface. It uses actionlib, which permits to us to make the code simplier and better. It is really important to say that we have three parameters that we get from the UI:
+ - ``active`` which is the variable determinating the status of the modality, if it&apos;s on or not.
+ - ``desired_position_x`` which communicates the desired x position.
+ - ``desired_position_y`` which communicates the desired y position.
+</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/modality1.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

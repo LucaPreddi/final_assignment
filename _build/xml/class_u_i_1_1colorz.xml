@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_u_i_1_1colorz" kind="class" language="Python" prot="public">
+    <compoundname>UI::colorz</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_u_i_1_1colorz_1a5bc4af8ba8098f0fce31c920b4792cbd" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UI.colorz::WHITE</definition>
+        <argsstring></argsstring>
+        <name>WHITE</name>
+        <initializer>=  &apos;\033[95m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="24" column="1" bodyfile="scripts/UI.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1colorz_1a70d15d598b691ba949e3045371e048de" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UI.colorz::BLUE</definition>
+        <argsstring></argsstring>
+        <name>BLUE</name>
+        <initializer>=  &apos;\033[94m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="25" column="1" bodyfile="scripts/UI.py" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1colorz_1a400d8329d748e68fd4d1a5a45c6f68f4" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UI.colorz::CYAN</definition>
+        <argsstring></argsstring>
+        <name>CYAN</name>
+        <initializer>=  &apos;\033[96m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="26" column="1" bodyfile="scripts/UI.py" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1colorz_1a8b4edbf23e0d28e20a246ccce9a3cd6d" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UI.colorz::GREEN</definition>
+        <argsstring></argsstring>
+        <name>GREEN</name>
+        <initializer>=  &apos;\033[92m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="27" column="1" bodyfile="scripts/UI.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1colorz_1ac6167e88993f8bbd06d2a6d6d95917c2" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UI.colorz::YELLOW</definition>
+        <argsstring></argsstring>
+        <name>YELLOW</name>
+        <initializer>=  &apos;\033[93m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="28" column="1" bodyfile="scripts/UI.py" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1colorz_1a4adaf7280f2fb9e24d8a8caf6dccf0f1" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UI.colorz::RED</definition>
+        <argsstring></argsstring>
+        <name>RED</name>
+        <initializer>=  &apos;\033[91m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="29" column="1" bodyfile="scripts/UI.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1colorz_1afdc76c5dea86c7480ce3308fdb71cf89" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UI.colorz::END</definition>
+        <argsstring></argsstring>
+        <name>END</name>
+        <initializer>=  &apos;\033[0m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="30" column="1" bodyfile="scripts/UI.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1colorz_1af705adeb9f77ffc4d2adbae3fd337069" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string UI.colorz::BOLD</definition>
+        <argsstring></argsstring>
+        <name>BOLD</name>
+        <initializer>=  &apos;\033[1m&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/UI.py" line="31" column="1" bodyfile="scripts/UI.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="scripts/UI.py" line="23" column="1" bodyfile="scripts/UI.py" bodystart="23" bodyend="35"/>
+    <listofallmembers>
+      <member refid="class_u_i_1_1colorz_1a70d15d598b691ba949e3045371e048de" prot="public" virt="non-virtual"><scope>UI::colorz</scope><name>BLUE</name></member>
+      <member refid="class_u_i_1_1colorz_1af705adeb9f77ffc4d2adbae3fd337069" prot="public" virt="non-virtual"><scope>UI::colorz</scope><name>BOLD</name></member>
+      <member refid="class_u_i_1_1colorz_1a400d8329d748e68fd4d1a5a45c6f68f4" prot="public" virt="non-virtual"><scope>UI::colorz</scope><name>CYAN</name></member>
+      <member refid="class_u_i_1_1colorz_1afdc76c5dea86c7480ce3308fdb71cf89" prot="public" virt="non-virtual"><scope>UI::colorz</scope><name>END</name></member>
+      <member refid="class_u_i_1_1colorz_1a8b4edbf23e0d28e20a246ccce9a3cd6d" prot="public" virt="non-virtual"><scope>UI::colorz</scope><name>GREEN</name></member>
+      <member refid="class_u_i_1_1colorz_1a4adaf7280f2fb9e24d8a8caf6dccf0f1" prot="public" virt="non-virtual"><scope>UI::colorz</scope><name>RED</name></member>
+      <member refid="class_u_i_1_1colorz_1a5bc4af8ba8098f0fce31c920b4792cbd" prot="public" virt="non-virtual"><scope>UI::colorz</scope><name>WHITE</name></member>
+      <member refid="class_u_i_1_1colorz_1ac6167e88993f8bbd06d2a6d6d95917c2" prot="public" virt="non-virtual"><scope>UI::colorz</scope><name>YELLOW</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

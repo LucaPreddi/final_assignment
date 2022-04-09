@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacemodality2" kind="namespace" language="Python">
+    <compoundname>modality2</compoundname>
+    <innerclass refid="classmodality2_1_1colorz" prot="public">modality2::colorz</innerclass>
+    <innerclass refid="classmodality2_1_1_publish_thread" prot="public">modality2::PublishThread</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemodality2_1ab062746c4c02d03765583b29f25555db" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string modality2.msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <initializer>=  &quot;&quot;&quot; 
+&quot;&quot;&quot; + colorz.BOLD +&quot;&quot;&quot;
+This node makes the robot move with some keys, here&apos;s the list, enjoy!
+---------------------------
+
+&quot;&quot;&quot; + colorz.END + colorz.BOLD + &quot;&quot;&quot;
+Moving around:
+        i     
+   j    k    l
+
+&quot;&quot;&quot; + colorz.END + colorz.BOLD + &quot;&quot;&quot;
+anything else : stop
+&quot;&quot;&quot; + colorz.END + colorz.BOLD +&quot;&quot;&quot;
+q/z : increase/decrease max speeds by 10%
+w/x : increase/decrease only linear speed by 10%
+e/c : increase/decrease only angular speed by 10%
+&quot;&quot;&quot;+ colorz.END +&quot;&quot;&quot; 
+
+&quot;&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="44" column="1" bodyfile="scripts/modality2.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a255a2196f4be30d3c13fa6b05dcc31ed" prot="public" static="no" mutable="no">
+        <type>dictionary</type>
+        <definition>dictionary modality2.moveBindings</definition>
+        <argsstring></argsstring>
+        <name>moveBindings</name>
+        <initializer>=  {
+        &apos;i&apos;:(1,0,0,0),
+        &apos;o&apos;:(1,0,0,-1),
+        &apos;j&apos;:(0,0,0,1),
+        &apos;l&apos;:(0,0,0,-1),
+        &apos;u&apos;:(1,0,0,1),
+        &apos;,&apos;:(-1,0,0,0),
+        &apos;.&apos;:(-1,0,0,1),
+        &apos;m&apos;:(-1,0,0,-1),
+        &apos;O&apos;:(1,-1,0,0),
+        &apos;I&apos;:(1,0,0,0),
+        &apos;J&apos;:(0,1,0,0),
+        &apos;L&apos;:(0,-1,0,0),
+        &apos;U&apos;:(1,1,0,0),
+        &apos;&lt;&apos;:(-1,0,0,0),
+        &apos;&gt;&apos;:(-1,-1,0,0),
+        &apos;M&apos;:(-1,1,0,0),
+        &apos;t&apos;:(0,0,1,0),
+        &apos;b&apos;:(0,0,-1,0),
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="72" column="1" bodyfile="scripts/modality2.py" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1ad79b947b1dd51d1c046e7a17ad235049" prot="public" static="no" mutable="no">
+        <type>dictionary</type>
+        <definition>dictionary modality2.speedBindings</definition>
+        <argsstring></argsstring>
+        <name>speedBindings</name>
+        <initializer>= {
+        &apos;q&apos;:(1.1,1.1),
+        &apos;z&apos;:(.9,.9),
+        &apos;w&apos;:(1.1,1),
+        &apos;x&apos;:(.9,1),
+        &apos;e&apos;:(1,1.1),
+        &apos;c&apos;:(1,.9),
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="93" column="1" bodyfile="scripts/modality2.py" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1aacab91e8bbf3a68bedf533909771afdb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int modality2::boolprint</definition>
+        <argsstring></argsstring>
+        <name>boolprint</name>
+        <initializer>=  1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>In this code we don&apos;t have the main function but we just use the famous if __name__ of python.
+The code here is needed.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="247" column="1" bodyfile="scripts/modality2.py" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a794905045494c22ee8ae7da8b90e6587" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <initializer>=  termios.tcgetattr(sys.stdin)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="250" column="1" bodyfile="scripts/modality2.py" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a5c5f066f712e6dc7480c56833eaf1ec4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>dictionary modality2::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <initializer>=  rospy.get_param(&quot;~speed&quot;, 0.5)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="251" column="1" bodyfile="scripts/modality2.py" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a7109f3b8ad861300a6013f11c395c201" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>dictionary modality2::turn</definition>
+        <argsstring></argsstring>
+        <name>turn</name>
+        <initializer>=  rospy.get_param(&quot;~turn&quot;, 1.0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="252" column="1" bodyfile="scripts/modality2.py" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a467a75e3634938bb969a877d55a4c464" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.repeat</definition>
+        <argsstring></argsstring>
+        <name>repeat</name>
+        <initializer>=  rospy.get_param(&quot;~repeat_rate&quot;, 0.0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="253" column="1" bodyfile="scripts/modality2.py" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a66e8723d8897d5b08b4ce2db0f9ca741" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.key_timeout</definition>
+        <argsstring></argsstring>
+        <name>key_timeout</name>
+        <initializer>=  rospy.get_param(&quot;~key_timeout&quot;, 0.1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="254" column="1" bodyfile="scripts/modality2.py" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a29f1b19ea9fc2b8ecd14396d15662dbc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>modality2.pub_thread</definition>
+        <argsstring></argsstring>
+        <name>pub_thread</name>
+        <initializer>=  <ref refid="classmodality2_1_1_publish_thread" kindref="compound">PublishThread</ref>(repeat)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="259" column="1" bodyfile="scripts/modality2.py" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a983cbefdba88d496de903621282917b0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int modality2::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="261" column="1" bodyfile="scripts/modality2.py" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1ace3dd61a5c9381518654abcb439f0195" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int modality2::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="262" column="1" bodyfile="scripts/modality2.py" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a622d2e44d43077622c23d715fe376910" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int modality2::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="263" column="1" bodyfile="scripts/modality2.py" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a91386fce04c458d6163fc479204c55d5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int modality2::th</definition>
+        <argsstring></argsstring>
+        <name>th</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="264" column="1" bodyfile="scripts/modality2.py" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1abc0ae5d3c95bcb4f1a237f787f5a9227" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>tuple modality2::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="265" column="1" bodyfile="scripts/modality2.py" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemodality2_1a51a8c57aae3bf94ef3c79bad7d240f24" prot="public" static="no" mutable="no">
+        <type>def</type>
+        <definition>def modality2.key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <initializer>=  <ref refid="namespacemodality2_1a67ec50d4465f0d484ffcca4291abe729" kindref="member">getKey</ref>(key_timeout)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="297" column="1" bodyfile="scripts/modality2.py" bodystart="297" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacemodality2_1a67ec50d4465f0d484ffcca4291abe729" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality2.getKey</definition>
+        <argsstring>(key_timeout)</argsstring>
+        <name>getKey</name>
+        <param>
+          <type>key_timeout</type>
+          <defname>key_timeout</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function to get the input from the keyboard without having the need to wait for the user to press enter.
+
+Args:
+ key_timeout
+Returns:
+ the key.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="213" column="1" bodyfile="scripts/modality2.py" bodystart="213" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacemodality2_1a8b8a221c8f783f844b416366fb7ce8c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def modality2.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>The main here is really important because as the different input arrives it changes the key moving the robots.
+As the other two modalities, we have again ``active`` which permits the user to use the modality as he wants.</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/modality2.py" line="231" column="1" bodyfile="scripts/modality2.py" bodystart="231" bodyend="237"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: Modality2
+ :platform: Unix
+ :synopsis: Module for the second modality.
+
+.. moduleauthor:: Luca Predieri &lt;luca.predieri2018@gmail.com&gt;
+ 
+This code is just the already existing teleop_twist_keyboard package on ROS. Some of the code has been modified in  order to incorporate
+the script with the final_assignment package. Some code won&apos;t be commented as gar as you can check the ROS wiki package of it by googling it.
+Anyway, here&apos;s the link for getting deeper in the code: http://wiki.ros.org/teleop_twist_keyboard</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/modality2.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

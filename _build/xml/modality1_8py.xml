@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="modality1_8py" kind="file" language="Python">
+    <compoundname>modality1.py</compoundname>
+    <innerclass refid="classmodality1_1_1colorz" prot="public">modality1::colorz</innerclass>
+    <innernamespace refid="namespacemodality1">modality1</innernamespace>
+    <innernamespace refid="namespacestd__srvs_1_1srv">std_srvs::srv</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacemodality1" refkind="compound"><highlight class="comment">#!<sp/>/usr/bin/env<sp/>python3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral">..<sp/>module::<sp/>Modality1</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral"><sp/>:platform:<sp/>Unix</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral"><sp/>:synopsis:<sp/>Module<sp/>for<sp/>the<sp/>first<sp/>modality.</highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral">..<sp/>moduleauthor::<sp/>Luca<sp/>Predieri<sp/>&lt;luca.predieri2018@gmail.com&gt;</highlight></codeline>
+<codeline lineno="9"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="10"><highlight class="stringliteral">Subscribes<sp/>to:</highlight></codeline>
+<codeline lineno="11"><highlight class="stringliteral"><sp/>none</highlight></codeline>
+<codeline lineno="12"><highlight class="stringliteral">Publishes<sp/>to:</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"><sp/>none</highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral">This<sp/>node<sp/>is<sp/>needed<sp/>to<sp/>the<sp/>first<sp/>modality<sp/>of<sp/>the<sp/>program.<sp/>The<sp/>node<sp/>makes<sp/>the<sp/>robot<sp/>autonomously<sp/>reach<sp/>a<sp/>x,y<sp/>position<sp/>inserted<sp/>by<sp/>the<sp/>user<sp/>on<sp/>the<sp/>UI<sp/>interface.<sp/>It<sp/>uses<sp/>actionlib,<sp/>which<sp/>permits<sp/>to<sp/>us<sp/>to<sp/>make<sp/>the<sp/>code<sp/>simplier<sp/>and<sp/>better.<sp/>It<sp/>is<sp/>really<sp/>important<sp/>to<sp/>say<sp/>that<sp/>we<sp/>have<sp/>three<sp/>parameters<sp/>that<sp/>we<sp/>get<sp/>from<sp/>the<sp/>UI:</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/>-<sp/>``active``<sp/>which<sp/>is<sp/>the<sp/>variable<sp/>determinating<sp/>the<sp/>status<sp/>of<sp/>the<sp/>modality,<sp/>if<sp/>it&apos;s<sp/>on<sp/>or<sp/>not.</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/>-<sp/>``desired_position_x``<sp/>which<sp/>communicates<sp/>the<sp/>desired<sp/>x<sp/>position.</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/>-<sp/>``desired_position_y``<sp/>which<sp/>communicates<sp/>the<sp/>desired<sp/>y<sp/>position.</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Importing<sp/>the<sp/>libraries.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>actionlib</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>move_base_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>MoveBaseAction,<sp/>MoveBaseGoal</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>tf<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>transformations</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/><ref refid="namespacestd__srvs_1_1srv" kindref="compound">std_srvs.srv</ref><sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Implementing<sp/>the<sp/>class<sp/>colorz,<sp/>the<sp/>class<sp/>which<sp/>assign<sp/>the<sp/>name<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">#<sp/>to<sp/>the<sp/>colors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classmodality1_1_1colorz" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmodality1_1_1colorz" kindref="compound">colorz</ref>:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>BLUE<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[94m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>GREEN<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[92m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>RED<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[91m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[0m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>BOLD<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;\033[1m&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Implementing<sp/>class<sp/>with<sp/>the<sp/>colors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Creating<sp/>message<sp/>to<sp/>display<sp/>later.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">msg<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="45"><highlight class="stringliteral">This<sp/>node<sp/>makes<sp/>the<sp/>robot<sp/>autonomously<sp/>reach<sp/>a<sp/>x,y<sp/>position<sp/>inserted<sp/>by<sp/>the<sp/>user<sp/>on<sp/>the<sp/>UI<sp/>interface.</highlight></codeline>
+<codeline lineno="46"><highlight class="stringliteral">It<sp/>uses<sp/>actionlib,<sp/>which<sp/>permits<sp/>to<sp/>us<sp/>to<sp/>make<sp/>the<sp/>code<sp/>simplier<sp/>and<sp/>better.</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"><sp/>+colorz.END<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="48"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Assigning<sp/>to<sp/>local<sp/>variables<sp/>the<sp/>data<sp/>travelling<sp/>around<sp/>ROS&apos;<sp/>nodes.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">#<sp/>This<sp/>part<sp/>is<sp/>crucial.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">goal_msg<sp/>=<sp/>MoveBaseGoal()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Action<sp/>client.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">achieved<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Variable<sp/>for<sp/>defining<sp/>if<sp/>a<sp/>goal<sp/>was<sp/>achieved<sp/>or<sp/>not.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">active_<sp/>=<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>ROS<sp/>poarameter<sp/>to<sp/>block/unlock<sp/>the<sp/>modality<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">desired_position_x<sp/>=<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>X<sp/>desired<sp/>coordinate<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">desired_position_y<sp/>=<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Y<sp/>desired<sp/>coordinate<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Defining<sp/>ActionClient(),<sp/>the<sp/>function<sp/>starts<sp/>the<sp/>communication<sp/>with<sp/>wait_for_server()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">#<sp/>The<sp/>action<sp/>client<sp/>and<sp/>server<sp/>communicate<sp/>over<sp/>a<sp/>set<sp/>of<sp/>topics,<sp/>described<sp/>in<sp/>the<sp/>actionlib<sp/>protocol.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">#<sp/>The<sp/>action<sp/>name<sp/>describes<sp/>the<sp/>namespace<sp/>naining<sp/>these<sp/>topics,<sp/>and<sp/>the<sp/>action<sp/>specification<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">#<sp/>message<sp/>describes<sp/>what<sp/>messages<sp/>should<sp/>be<sp/>passed<sp/>along<sp/>these<sp/>topics.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemodality1_1a616dd3eef0bee412e3031d9fc175d881" kindref="member">ActionClient</ref>():</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Function<sp/>to<sp/>define<sp/>the<sp/>ActionClient<sp/>and<sp/>create<sp/>the<sp/>action.</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>none.</highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>goal_msg</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>client</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>client.wait_for_server()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>goal_msg.target_pose.header.frame_id<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;map&apos;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>goal_msg.target_pose.header.stamp<sp/>=<sp/>rospy.Time.now()<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>goal_msg.target_pose.pose.orientation.w<sp/>=<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Defining<sp/>done_cb()<sp/>function,<sp/>this<sp/>function<sp/>updates<sp/>when<sp/>status<sp/>value<sp/>changes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">#<sp/>and<sp/>it&apos;s<sp/>the<sp/>core<sp/>of<sp/>the<sp/>action,<sp/>because<sp/>it<sp/>changes<sp/>the<sp/>behaviour<sp/>of<sp/>the<sp/>robot</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">#<sp/>the<sp/>n<sp/>variable<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemodality1_1a0f8dc8c465d7f4bae24dd9b20610f31f" kindref="member">done_cb</ref>(status,<sp/>result):</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Function<sp/>to<sp/>define<sp/>the<sp/>functionalities<sp/>of<sp/>the<sp/>action,<sp/>like<sp/>advising<sp/>the<sp/>user<sp/>of<sp/>the<sp/>goal<sp/>received<sp/>and<sp/>other<sp/>useful<sp/>messages.<sp/>We<sp/>want<sp/>the<sp/>action<sp/>to<sp/>do<sp/>the<sp/>following<sp/>dues:</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>-<sp/>Advising<sp/>the<sp/>user<sp/>Advising<sp/>the<sp/>user<sp/>that<sp/>the<sp/>goal<sp/>was<sp/>cancelled.</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>-<sp/>Advising<sp/>the<sp/>user<sp/>that<sp/>the<sp/>goal<sp/>was<sp/>achieved.</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>-<sp/>Advising<sp/>the<sp/>user<sp/>that<sp/>the<sp/>goal<sp/>was<sp/>aborted<sp/>because<sp/>the<sp/>timer<sp/>expired.</highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>-<sp/>Advising<sp/>the<sp/>user<sp/>that<sp/>the<sp/>goal<sp/>was<sp/>not<sp/>accepted.</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>none</highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Returns:</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>none</highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>client</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>achieved</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>status<sp/>==<sp/>2:</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.RED<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Goal<sp/>received<sp/>a<sp/>cancel<sp/>request.&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>status<sp/>==<sp/>3:</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.GREEN<sp/>+<sp/>colorz.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Goal<sp/>achieved!&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>achieved<sp/>=<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>status<sp/>==<sp/>4:</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.RED<sp/>+<sp/>bcolrs.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Timeout<sp/>expired.<sp/>Goal<sp/>aborted.&quot;</highlight><highlight class="normal"><sp/><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>status<sp/>==<sp/>5:</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.RED<sp/>+<sp/>bcolrs.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>goal<sp/>was<sp/>not<sp/>accepted.&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>status<sp/>==<sp/>6:</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.RED<sp/>+<sp/>bcolrs.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>goal<sp/>received<sp/>a<sp/>cancel<sp/>request<sp/>when<sp/>he<sp/>didn&apos;t<sp/>finish<sp/>the<sp/>task.&quot;</highlight><highlight class="normal">+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>status<sp/>==<sp/>8:</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.RED<sp/>+<sp/>bcolrs.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>goal<sp/>received<sp/>a<sp/>cancel<sp/>request<sp/>before<sp/>it<sp/>started<sp/>executing.<sp/>&quot;</highlight><highlight class="normal">+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment">#<sp/>No-parameter<sp/>callback<sp/>that<sp/>gets<sp/>called<sp/>on<sp/>transitions<sp/>to<sp/>Active.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">active_cb():</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>k=1</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Callback<sp/>that<sp/>gets<sp/>called<sp/>whenever<sp/>feedback<sp/>for<sp/>this<sp/>goal<sp/>is<sp/>received.<sp/>Takes<sp/>one<sp/>parameter:<sp/>the<sp/>feedback.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">feedback_cb(feedback):</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>k=1</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">#<sp/>SetGoal()<sp/>is<sp/>used<sp/>to<sp/>set<sp/>the<sp/>goal<sp/>data<sp/>in<sp/>the<sp/>goal_msg<sp/>which<sp/>will<sp/>be<sp/>published.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Sends<sp/>a<sp/>goal<sp/>to<sp/>the<sp/>ActionServer,<sp/>and<sp/>also<sp/>registers<sp/>callbacks.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">#<sp/>If<sp/>a<sp/>previous<sp/>goal<sp/>is<sp/>already<sp/>active<sp/>when<sp/>this<sp/>is<sp/>called.<sp/>We<sp/>simply<sp/>forget<sp/>about<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">#<sp/>that<sp/>goal<sp/>and<sp/>start<sp/>tracking<sp/>the<sp/>new<sp/>goal.<sp/>No<sp/>cancel<sp/>requests<sp/>are<sp/>made.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">SetGoal(x,<sp/>y):</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>goal_msg</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>client</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>goal_msg.target_pose.pose.position.x<sp/>=<sp/>x</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>goal_msg.target_pose.pose.position.y<sp/>=<sp/>y</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>client.send_goal(goal_msg,<sp/>done_cb,<sp/>active_cb,<sp/>feedback_cb)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">#<sp/>UpdatingVariables()<sp/>is<sp/>used<sp/>to<sp/>keep<sp/>update<sp/>the<sp/>three<sp/>parameters<sp/>crucial<sp/>to<sp/>the<sp/>script,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">#<sp/>active_,<sp/>desired_position_x,<sp/>desired_position_y.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemodality1_1a6bb96756117598afba46286f05b10113" kindref="member">UpdatingVariables</ref>():</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="148"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Function<sp/>to<sp/>update<sp/>the<sp/>variables:</highlight></codeline>
+<codeline lineno="149"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>-<sp/>active</highlight></codeline>
+<codeline lineno="150"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>-<sp/>desired_position_x</highlight></codeline>
+<codeline lineno="151"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>-<sp/>desired_position_y</highlight></codeline>
+<codeline lineno="152"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="154"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>none.</highlight></codeline>
+<codeline lineno="155"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>desired_position_x,<sp/>desired_position_y,<sp/>active_</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>active_<sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;active&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>desired_position_x<sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;des_pos_x&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>desired_position_y<sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;des_pos_y&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">#<sp/>Defining<sp/>main()<sp/>function.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacemodality1_1a177e9e2767796ff5ef6ca698511527e3" kindref="member">main</ref>():</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="166"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Function<sp/>to<sp/>start<sp/>all<sp/>the<sp/>features.<sp/>The<sp/>function<sp/>if<sp/>active<sp/>is<sp/>toggled<sp/>or<sp/>not<sp/>it<sp/>will<sp/>do<sp/>different<sp/>tasks,<sp/>it<sp/>will<sp/>wait<sp/>when<sp/>it<sp/>is<sp/></highlight></codeline>
+<codeline lineno="167"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>0<sp/>and<sp/>it<sp/>will<sp/>check<sp/>the<sp/>situation<sp/>of<sp/>the<sp/>robot<sp/>and<sp/>the<sp/>task,<sp/>obviously<sp/>it<sp/>is<sp/>all<sp/>helped<sp/>by<sp/>the<sp/>action.</highlight></codeline>
+<codeline lineno="168"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Args:</highlight></codeline>
+<codeline lineno="170"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>none.</highlight></codeline>
+<codeline lineno="171"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>client</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>goal_msg</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">global</highlight><highlight class="normal"><sp/>achieved</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>client<sp/>=<sp/>actionlib.SimpleActionClient(</highlight><highlight class="stringliteral">&apos;/move_base&apos;</highlight><highlight class="normal">,<sp/>MoveBaseAction)<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Action<sp/>client.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.init_node(</highlight><highlight class="stringliteral">&apos;modality1&apos;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">#<sp/>Init<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Running<sp/>the<sp/>ActionClient()<sp/>function<sp/>to<sp/>start<sp/>the<sp/>communication<sp/>with<sp/>the<sp/>action.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacemodality1_1a616dd3eef0bee412e3031d9fc175d881" kindref="member">ActionClient</ref>()</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Boolprint<sp/>used<sp/>in<sp/>order<sp/>to<sp/>know<sp/>if<sp/>the<sp/>previous<sp/>state<sp/>was<sp/>printable.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>boolprint<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>print(msg)<sp/></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1):</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Updating<sp/>the<sp/>variables<sp/>(including<sp/>active_).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacemodality1_1a6bb96756117598afba46286f05b10113" kindref="member">UpdatingVariables</ref>()</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>we<sp/>are<sp/>in<sp/>Idle<sp/>state<sp/>but<sp/>a<sp/>goal<sp/>was<sp/>not<sp/>achieved<sp/>we<sp/>need<sp/>to<sp/>cancel<sp/>the<sp/>goal.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>active_<sp/>is<sp/>turned<sp/>to<sp/>0<sp/>we<sp/>can<sp/>idle<sp/>the<sp/>process<sp/>and<sp/>wait<sp/>until<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>first<sp/>modality<sp/>is<sp/>asked<sp/>by<sp/>the<sp/>user.<sp/>In<sp/>any<sp/>case,<sp/>we<sp/>want<sp/>to<sp/>cancel<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>the<sp/>goal<sp/>asked<sp/>by<sp/>the<sp/>user.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>active_<sp/>==<sp/>0:</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>the<sp/>robot<sp/>is<sp/>idle<sp/>forced<sp/>by<sp/>the<sp/>user<sp/>we<sp/>do<sp/>this:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>boolprint<sp/>==<sp/>0<sp/></highlight><highlight class="keywordflow">and</highlight><highlight class="normal"><sp/>achieved<sp/>==<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.BLUE<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;Modality<sp/>1<sp/>is<sp/>currently<sp/>in<sp/>idle<sp/>state.<sp/>\n&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>client.cancel_goal()</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>boolprint<sp/>=<sp/>1</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>the<sp/>robot<sp/>has<sp/>achieved<sp/>the<sp/>goal.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>achieved<sp/>==<sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>boolprint<sp/>=<sp/>1</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>achieved<sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>active_<sp/>is<sp/>turned<sp/>to<sp/>1<sp/>we<sp/>procede<sp/>with<sp/>the<sp/>task<sp/>of<sp/>the<sp/>process.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>active_<sp/>==<sp/>1:</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>the<sp/>prevoius<sp/>state<sp/>was<sp/>Idle<sp/>then<sp/>we<sp/>can<sp/>set<sp/>a<sp/>new<sp/>goal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>boolprint<sp/>==<sp/>1:</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>print(colorz.GREEN<sp/>+<sp/>colorz.BOLD<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;The<sp/>robot<sp/>is<sp/>moving<sp/>towards<sp/>your<sp/>desired<sp/>target.<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>colorz.END)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetGoal(desired_position_x,<sp/>desired_position_y)<sp/></highlight><highlight class="comment">#<sp/>Here<sp/>we<sp/>decide<sp/>to<sp/>set<sp/>a<sp/>new<sp/>goal.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>boolprint<sp/>=<sp/>0<sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>If<sp/>this<sp/>modality<sp/>will<sp/>be<sp/>blocked,<sp/>then<sp/>we<sp/>have<sp/>to<sp/>be<sp/>put<sp/>in<sp/>idle.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacemodality1_1a177e9e2767796ff5ef6ca698511527e3" kindref="member">main</ref>()</highlight></codeline>
+    </programlisting>
+    <location file="scripts/modality1.py"/>
+  </compounddef>
+</doxygen>
