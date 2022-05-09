@@ -91,16 +91,16 @@
       <param name="transform_publish_period" value="0.0005"/>
     </node>
 
-  <!-- ################ Launching the user interface's nodes. ################ -->
+  <!-- ################ Launching the user interface's nodes. ################ required="true"  -->
 
   <param name="active" type="int" value="0" />
   <param name="des_pos_x" type="double" value="1" />
   <param name="des_pos_y" type="double" value="1" />
 
   <node pkg="final_assignment" type="UI.py" name="UI" required="true" launch-prefix="xterm -e" />
-  <node pkg="final_assignment" type="modality1.py" name="modality1" required="true" launch-prefix="xterm -e" />
-  <node pkg="final_assignment" type="modality2.py" name="modality2" required="true" launch-prefix="xterm -e" /> 
-  <node pkg="final_assignment" type="modality3.py" name="modality3" required="true" launch-prefix="xterm -e" /> 
+  <node pkg="final_assignment" type="modality1.py" name="modality1" launch-prefix="xterm -e" />
+  <node pkg="final_assignment" type="modality2.py" name="modality2" launch-prefix="xterm -e" /> 
+  <node pkg="final_assignment" type="modality3.py" name="modality3" launch-prefix="xterm -e" /> 
 
   <!-- ################ Launching the move_base node. ################ -->
 
