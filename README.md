@@ -1,5 +1,6 @@
 # RT1Assignment3
 The second assignment of the Research Track 1 class regards the use of a robot simulator in ROS (Robot Operating System) and the programming of a really simple UI (User Interface) with 3 different modalities.
+Sphinx Documentation: https://lucapredieri.github.io/DiscoveryRobotROS/
 
 Installing and running
 ----------------------
